@@ -15,6 +15,15 @@ Failure-aware execution protocol for AI-assisted software engineering.
 
 Core promise: **Predict failure. Route safely. Prove the result. Leave a receipt.**
 
+## Start Here
+
+- [Architecture map](docs/architecture-map.md)
+- [Domain producers](docs/domain-producers.md)
+- [Countermap receipts](docs/countermap-receipts.md)
+- [Receipt graph](docs/receipt-graph.md)
+- [Sanitized gate-runner example](examples/sanitized-gate-runner-receipt/)
+- [Release checklist](RELEASE.md)
+
 ## What Is oz-skilltree?
 
 `oz-skilltree` is an operating protocol, not a runtime. It gives AI coding workflows a structured loop for:
