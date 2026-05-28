@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/countermap.schema.json",
+  "title": "Countermap",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["countermap_id", "mode", "max_counters", "counters", "reserved_counters", "exhaustion_protocol"],
+  "properties": {
+    "countermap_id": { "type": "string" },
+    "mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "max_counters": { "type": "integer", "minimum": 1, "maximum": 50 },
+    "counters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "counter_id",
+          "counter_family_id",
+          "counter_type",
+          "use_when",
+          "do_not_use_when",
+          "expected_signal",
+          "side_effect_risk",
+          "reversibility_score"
+        ],
+        "properties": {
+          "counter_id": { "type": "string" },
+          "counter_family_id": {
+            "enum": [
+              "goal_contract",
+              "source_of_truth",
+              "repo_truth",
+              "branch_commit_control",
+              "environment_fingerprint",
+              "dependency_integrity",
+              "build_exec",
+              "deployment_safety",
+              "verification_evidence",
+              "rollback_recovery",
+              "escalation_human",
+              "prompt_boundary",
+              "permission_scope",
+              "public_private_boundary",
+              "negative_memory",
+              "observability_boundary"
+            ]
+          },
+          "counter_type": { "enum": ["prevention", "diagnostic", "repair", "verification", "rollback", "escalation"] },
+          "use_when": { "type": "string" },
+          "do_not_use_when": { "type": "string" },
+          "expected_signal": { "type": "string" },
+          "side_effect_risk": { "enum": ["low", "medium", "high"] },
+          "reversibility_score": { "type": "integer", "minimum": 1, "maximum": 5 }
+        }
+      }
+    },
+    "reserved_counters": { "type": "array", "items": { "type": "string" } },
+    "exhaustion_protocol": { "type": "string" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "route_id": "ybr-dashboard-module-001",
+  "selected_route": "Use Bug-Cognizant as a planning lens, then require /oz-start before implementation.",
+  "why_this_route_wins": "It predicts future bugs without creating runtime or receipt state prematurely.",
+  "failure_families_addressed": ["requirements_or_goal_ambiguity"],
+  "counters_used_first": ["c1"],
+  "counters_reserved": ["permission matrix review"],
+  "first_safe_action": "Write a future build surface map.",
+  "approval_level": "L1",
+  "verification_gate": "Architecture recommendation names non-goals and verification hooks.",
+  "evidence_that_changes_route": ["operator approves implementation", "auth boundary appears"],
+  "stop_condition": "Implementation request appears without active receipt.",
+  "next_approval_phrase": "Approve /oz-start for implementation."
+}

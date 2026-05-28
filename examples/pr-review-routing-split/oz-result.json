@@ -1,0 +1,15 @@
+{
+  "receipt_id": "OzReceipt-pr-review-routing-split",
+  "result_id": "OzResult-pr-review-routing-split",
+  "truth_state_before": "claimed",
+  "truth_state_after": "verified",
+  "counter_results": [{ "counter_id": "c2", "status": "worked" }],
+  "negative_memory": ["Do not close PR review on summary alone."],
+  "future_retrieval_tags": ["pr-review", "routing", "deep"],
+  "changed_route_if_any": null,
+  "files_changed": [],
+  "commands_run": ["npm test"],
+  "verification": ["checks run or explicit test gap recorded"],
+  "closed": true,
+  "next_gate": "Patch only with approval."
+}

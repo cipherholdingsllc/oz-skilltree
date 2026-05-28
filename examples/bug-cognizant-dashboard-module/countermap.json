@@ -1,0 +1,19 @@
+{
+  "countermap_id": "cm-dashboard-module",
+  "mode": "standard",
+  "max_counters": 8,
+  "counters": [
+    {
+      "counter_id": "c1",
+      "counter_family_id": "goal_contract",
+      "counter_type": "prevention",
+      "use_when": "Before selecting module architecture.",
+      "do_not_use_when": "Goal owner has not defined users.",
+      "expected_signal": "Explicit module goal and non-goals.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    }
+  ],
+  "reserved_counters": ["permission matrix review"],
+  "exhaustion_protocol": "Escalate to /oz-start if implementation begins."
+}

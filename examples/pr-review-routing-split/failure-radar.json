@@ -1,0 +1,23 @@
+{
+  "mode": "deep",
+  "why_this_mode": "PR review can mix findings, edits, verification, and branch state.",
+  "why_not_lower_mode": "Wrong-file edits and merge-before-verification risks require route control.",
+  "top_failure_families": [
+    {
+      "failure_id": "merge_before_verification",
+      "confidence": "medium",
+      "evidence_basis": "Review output can imply readiness before tests run.",
+      "public_private_classification": "public_safe"
+    },
+    {
+      "failure_id": "overbroad_edit_or_side_effect_drift",
+      "confidence": "medium",
+      "evidence_basis": "Patch work may exceed review scope.",
+      "public_private_classification": "public_safe"
+    }
+  ],
+  "unknowns": ["test command", "base branch"],
+  "first_safe_action": "Inspect diff before making findings.",
+  "stop_conditions": ["requested patch exceeds approval ceiling"],
+  "route_change_triggers": ["security-sensitive file appears", "tests require credentials"]
+}

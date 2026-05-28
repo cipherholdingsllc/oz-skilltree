@@ -1,0 +1,46 @@
+{
+  "name": "oz-skilltree",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Failure-aware execution protocol for AI-assisted software engineering.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "ai-assisted-software-engineering",
+    "failure-prediction",
+    "developer-tools",
+    "protocol",
+    "verification",
+    "receipts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cipherholdingsllc/oz-skilltree.git"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "benchmarks/",
+    "commands/",
+    "docs/",
+    "examples/",
+    "recipes/",
+    "research/",
+    "schemas/",
+    "scripts/",
+    "skills/",
+    "wiki/"
+  ],
+  "scripts": {
+    "validate:schemas": "node scripts/validate-schemas.mjs",
+    "check:links": "node scripts/check-doc-links.mjs",
+    "check:private": "node scripts/check-private-leaks.mjs",
+    "test": "npm run validate:schemas && npm run check:links && npm run check:private"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

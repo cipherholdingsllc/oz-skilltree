@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/bug-cognizant.schema.json",
+  "title": "BugCognizant",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "xyz",
+    "likely_future_builds",
+    "integrations",
+    "consumers",
+    "language_runtime_boundaries",
+    "data_state_contracts",
+    "extension_points",
+    "future_bug_families",
+    "refactor_hazards",
+    "scale_traps",
+    "observability_hooks",
+    "verification_hooks",
+    "what_not_to_build_yet",
+    "recommended_architecture"
+  ],
+  "properties": {
+    "xyz": { "type": "string" },
+    "likely_future_builds": { "type": "array", "items": { "type": "string" } },
+    "integrations": { "type": "array", "items": { "type": "string" } },
+    "consumers": { "type": "array", "items": { "type": "string" } },
+    "language_runtime_boundaries": { "type": "array", "items": { "type": "string" } },
+    "data_state_contracts": { "type": "array", "items": { "type": "string" } },
+    "extension_points": { "type": "array", "items": { "type": "string" } },
+    "future_bug_families": { "type": "array", "items": { "type": "string" } },
+    "refactor_hazards": { "type": "array", "items": { "type": "string" } },
+    "scale_traps": { "type": "array", "items": { "type": "string" } },
+    "observability_hooks": { "type": "array", "items": { "type": "string" } },
+    "verification_hooks": { "type": "array", "items": { "type": "string" } },
+    "what_not_to_build_yet": { "type": "array", "items": { "type": "string" } },
+    "recommended_architecture": { "type": "string" }
+  }
+}

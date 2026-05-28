@@ -1,0 +1,23 @@
+{
+  "mode": "deep",
+  "why_this_mode": "Build failures can involve package manager drift, wrong working directory, and false green verification.",
+  "why_not_lower_mode": "A standard pass may miss lockfile or environment mismatch.",
+  "top_failure_families": [
+    {
+      "failure_id": "package_manager_or_lockfile_drift",
+      "confidence": "high",
+      "evidence_basis": "Build failure appears before runtime verification.",
+      "public_private_classification": "public_safe"
+    },
+    {
+      "failure_id": "install_build_step_skipped_or_wrong_cwd",
+      "confidence": "medium",
+      "evidence_basis": "Command location must be proven before edits.",
+      "public_private_classification": "public_safe"
+    }
+  ],
+  "unknowns": ["exact failing command", "package manager authority"],
+  "first_safe_action": "Inspect package manager files and reproduce the failing build locally.",
+  "stop_conditions": ["lockfile authority unclear", "build requires secrets"],
+  "route_change_triggers": ["fresh logs point to deployment config instead of install/build"]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/failure-radar.schema.json",
+  "title": "FailureRadar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "why_this_mode",
+    "top_failure_families",
+    "unknowns",
+    "first_safe_action",
+    "stop_conditions",
+    "route_change_triggers"
+  ],
+  "properties": {
+    "mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "why_this_mode": { "type": "string" },
+    "why_not_lower_mode": { "type": "string" },
+    "top_failure_families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["failure_id", "confidence", "evidence_basis", "public_private_classification"],
+        "properties": {
+          "failure_id": { "type": "string" },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "evidence_basis": { "type": "string" },
+          "public_private_classification": { "enum": ["public_safe", "conditional", "private_internal"] }
+        }
+      }
+    },
+    "unknowns": { "type": "array", "items": { "type": "string" } },
+    "first_safe_action": { "type": "string" },
+    "stop_conditions": { "type": "array", "items": { "type": "string" } },
+    "route_change_triggers": { "type": "array", "items": { "type": "string" } }
+  }
+}

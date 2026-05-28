@@ -1,0 +1,16 @@
+{
+  "xyz": "dashboard module",
+  "likely_future_builds": ["filters", "saved views", "export", "role-specific summary"],
+  "integrations": ["data API", "auth/session", "feature flag"],
+  "consumers": ["operator", "reviewer", "admin"],
+  "language_runtime_boundaries": ["frontend component", "server data loader"],
+  "data_state_contracts": ["query params", "table state", "refresh status"],
+  "extension_points": ["column registry", "filter adapter", "empty state"],
+  "future_bug_families": ["state drift", "stale data", "permission mismatch"],
+  "refactor_hazards": ["hardcoded columns", "mixed client/server state"],
+  "scale_traps": ["unbounded table fetch", "expensive client filtering"],
+  "observability_hooks": ["load status", "error boundary", "query timing"],
+  "verification_hooks": ["fixture data", "permission matrix", "empty/error states"],
+  "what_not_to_build_yet": ["custom dashboard runtime", "analytics warehouse"],
+  "recommended_architecture": "Keep a typed data boundary, small column registry, and explicit state ownership."
+}

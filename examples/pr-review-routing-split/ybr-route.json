@@ -1,0 +1,14 @@
+{
+  "route_id": "ybr-pr-review-routing-split-001",
+  "selected_route": "Review first, verify second, patch only if findings are reproducible and in scope.",
+  "why_this_route_wins": "It separates judgment from mutation and keeps closeout evidence-based.",
+  "failure_families_addressed": ["merge_before_verification", "overbroad_edit_or_side_effect_drift"],
+  "counters_used_first": ["c1", "c2"],
+  "counters_reserved": ["scope diff review"],
+  "first_safe_action": "Inspect PR diff and base branch.",
+  "approval_level": "L3",
+  "verification_gate": "Relevant local checks pass or explicit test gap is recorded.",
+  "evidence_that_changes_route": ["security-sensitive code appears", "test gap blocks verification"],
+  "stop_condition": "Patch request exceeds approval ceiling.",
+  "next_approval_phrase": "Approve scoped patch after findings."
+}

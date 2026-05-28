@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/failure-atlas.schema.json",
+  "title": "PublicFailureAtlasMetadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "version",
+    "failure_family_count",
+    "counter_family_count",
+    "public_overview_path",
+    "public_source_boundary_path",
+    "public_derivation_note_path",
+    "private_source_included",
+    "raw_internal_artifacts_included"
+  ],
+  "properties": {
+    "artifact_id": { "type": "string" },
+    "version": { "type": "string" },
+    "failure_family_count": { "type": "integer" },
+    "counter_family_count": { "type": "integer" },
+    "public_overview_path": { "type": "string" },
+    "public_source_boundary_path": { "type": "string" },
+    "public_derivation_note_path": { "type": "string" },
+    "private_source_included": { "type": "boolean", "const": false },
+    "raw_internal_artifacts_included": { "type": "boolean", "const": false }
+  }
+}

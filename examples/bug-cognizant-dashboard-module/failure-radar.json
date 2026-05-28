@@ -1,0 +1,17 @@
+{
+  "mode": "standard",
+  "why_this_mode": "The task is architecture prediction, not mutation.",
+  "why_not_lower_mode": "Future boundary errors are likely enough to justify standard analysis.",
+  "top_failure_families": [
+    {
+      "failure_id": "requirements_or_goal_ambiguity",
+      "confidence": "medium",
+      "evidence_basis": "Dashboard scope can expand without a source-of-truth contract.",
+      "public_private_classification": "public_safe"
+    }
+  ],
+  "unknowns": ["data owner", "permission model"],
+  "first_safe_action": "Map data/state contracts before implementation.",
+  "stop_conditions": ["permission boundary unclear"],
+  "route_change_triggers": ["module touches production data or auth"]
+}

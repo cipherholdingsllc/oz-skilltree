@@ -1,0 +1,29 @@
+{
+  "countermap_id": "cm-pr-review-routing-split",
+  "mode": "deep",
+  "max_counters": 10,
+  "counters": [
+    {
+      "counter_id": "c1",
+      "counter_family_id": "branch_commit_control",
+      "counter_type": "diagnostic",
+      "use_when": "Before reviewing or patching a PR.",
+      "do_not_use_when": "Git metadata is unavailable.",
+      "expected_signal": "Base branch and changed files are known.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c2",
+      "counter_family_id": "verification_evidence",
+      "counter_type": "verification",
+      "use_when": "Before marking review as resolved.",
+      "do_not_use_when": "No runnable checks exist.",
+      "expected_signal": "Relevant checks pass or are honestly unavailable.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    }
+  ],
+  "reserved_counters": ["scope diff review", "human escalation on ambiguous owner"],
+  "exhaustion_protocol": "Leave receipt open if verification cannot run."
+}

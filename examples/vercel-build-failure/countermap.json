@@ -1,0 +1,29 @@
+{
+  "countermap_id": "cm-vercel-build-failure",
+  "mode": "deep",
+  "max_counters": 12,
+  "counters": [
+    {
+      "counter_id": "c1",
+      "counter_family_id": "repo_truth",
+      "counter_type": "diagnostic",
+      "use_when": "Before running build commands.",
+      "do_not_use_when": "Repo root is not confirmed.",
+      "expected_signal": "Repo root and working tree are known.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c2",
+      "counter_family_id": "dependency_integrity",
+      "counter_type": "diagnostic",
+      "use_when": "Package manager or lockfile may be wrong.",
+      "do_not_use_when": "No package manifest exists.",
+      "expected_signal": "Single package manager authority is identified.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    }
+  ],
+  "reserved_counters": ["fresh install after authority confirmed", "targeted build retry"],
+  "exhaustion_protocol": "Stop and request logs if local reproduction cannot be established."
+}

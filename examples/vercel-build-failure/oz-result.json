@@ -1,0 +1,15 @@
+{
+  "receipt_id": "OzReceipt-vercel-build-failure",
+  "result_id": "OzResult-vercel-build-failure",
+  "truth_state_before": "claimed",
+  "truth_state_after": "verified",
+  "counter_results": [{ "counter_id": "c1", "status": "worked" }],
+  "negative_memory": ["Wrong package manager fixes can create drift."],
+  "future_retrieval_tags": ["build-failure", "package-manager", "deep"],
+  "changed_route_if_any": null,
+  "files_changed": ["example config file"],
+  "commands_run": ["npm test"],
+  "verification": ["local build passed"],
+  "closed": true,
+  "next_gate": "Review staged diff before commit."
+}

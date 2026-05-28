@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/ybr-route.schema.json",
+  "title": "YBRRoute",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "route_id",
+    "selected_route",
+    "why_this_route_wins",
+    "failure_families_addressed",
+    "counters_used_first",
+    "counters_reserved",
+    "first_safe_action",
+    "approval_level",
+    "verification_gate",
+    "evidence_that_changes_route",
+    "stop_condition",
+    "next_approval_phrase"
+  ],
+  "properties": {
+    "route_id": { "type": "string" },
+    "selected_route": { "type": "string" },
+    "why_this_route_wins": { "type": "string" },
+    "failure_families_addressed": { "type": "array", "items": { "type": "string" } },
+    "counters_used_first": { "type": "array", "items": { "type": "string" } },
+    "counters_reserved": { "type": "array", "items": { "type": "string" } },
+    "first_safe_action": { "type": "string" },
+    "approval_level": { "enum": ["L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8"] },
+    "verification_gate": { "type": "string" },
+    "evidence_that_changes_route": { "type": "array", "items": { "type": "string" } },
+    "stop_condition": { "type": "string" },
+    "next_approval_phrase": { "type": "string" }
+  }
+}

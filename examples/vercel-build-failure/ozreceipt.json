@@ -1,0 +1,30 @@
+{
+  "receipt_id": "OzReceipt-vercel-build-failure",
+  "status": "closed",
+  "goal": "Diagnose and repair a web build failure.",
+  "lane": "repo-build",
+  "source_of_truth": ["package manifest", "lockfile", "build logs"],
+  "repo_context": {
+    "repo": "example-web",
+    "worktree": "local",
+    "root_path": "/repo",
+    "branch": "example",
+    "commit_sha": "unknown"
+  },
+  "approval_ceiling": "L3",
+  "candidate_universe_receipt": "Calibrated internally; surfaced deep diagnostic route.",
+  "failure_radar_mode": "deep",
+  "top_failure_families": ["package_manager_or_lockfile_drift", "install_build_step_skipped_or_wrong_cwd"],
+  "countermap": { "ref": "countermap.json" },
+  "ybr_route": { "ref": "ybr-route.json" },
+  "execution_prompt": "Inspect package authority, reproduce build, patch only proven failing surface.",
+  "stop_conditions": ["lockfile authority unclear", "build requires secrets"],
+  "truth_state_updates": [{ "from": "claimed", "to": "verified", "evidence": "local build pass" }],
+  "files_changed": ["example config file"],
+  "commands_run": ["npm test"],
+  "verification": ["local build passed"],
+  "rejected_routes": [{ "route": "blind dependency bump", "why": "too broad before evidence" }],
+  "next_gate": "Commit only after diff review.",
+  "negative_memory": ["Do not treat green install as runtime proof."],
+  "public_private_classification": "public_safe"
+}

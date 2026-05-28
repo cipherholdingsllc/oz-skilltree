@@ -1,0 +1,14 @@
+{
+  "route_id": "ybr-vercel-build-failure-001",
+  "selected_route": "Inspect repo and package authority, reproduce build locally, then patch only the failing surface.",
+  "why_this_route_wins": "It keeps mutation behind evidence and avoids deploy changes.",
+  "failure_families_addressed": ["package_manager_or_lockfile_drift", "install_build_step_skipped_or_wrong_cwd"],
+  "counters_used_first": ["c1", "c2"],
+  "counters_reserved": ["fresh install after authority confirmed", "targeted build retry"],
+  "first_safe_action": "Run repo/root/package-manager inspection.",
+  "approval_level": "L3",
+  "verification_gate": "Local build command completes with expected output.",
+  "evidence_that_changes_route": ["Logs identify deployment-only failure", "Secrets are required"],
+  "stop_condition": "Package manager authority remains ambiguous.",
+  "next_approval_phrase": "Approve local build reproduction."
+}
