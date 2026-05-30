@@ -1,5 +1,7 @@
 # oz-skilltree
 
+v0.1 Edition:
+
 Failure-aware execution protocol for AI-assisted software engineering.
 
 <p align="center">
