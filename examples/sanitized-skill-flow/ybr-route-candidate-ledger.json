@@ -1,0 +1,63 @@
+{
+  "ledger_id": "ybr-route-candidate-ledger-public-glossary-docs",
+  "why_route_count_was_sufficient": "Three routes cover direct edit, index-first, and defer-for-source options for a small docs task.",
+  "route_candidates": [
+    {
+      "route_id": "route-docs-index-first",
+      "route_name": "Index-first glossary patch",
+      "grade": "A+",
+      "score_out_of_10": 9.78,
+      "threshold": "A+ >= 9.75",
+      "status": "selected",
+      "score_reason": "Best balance of discoverability, reversibility, and verification.",
+      "reason_5_words": "Discoverable, small, verified, reversible, safe",
+      "failure_risk": "low",
+      "reversibility": "high",
+      "verification_strength": "high",
+      "time_to_value": "fast",
+      "scope_fit": "tight",
+      "counter_coverage": "complete",
+      "producer_alignment": "strong",
+      "why_rejected_or_selected": "Selected because docs index and glossary content can be verified together.",
+      "receipt_status": "complete"
+    },
+    {
+      "route_id": "route-glossary-only",
+      "route_name": "Glossary-only patch",
+      "grade": "A-",
+      "score_out_of_10": 9.12,
+      "threshold": "A- >= 9.00",
+      "status": "rejected",
+      "score_reason": "Useful but weaker navigation proof.",
+      "reason_5_words": "Useful but less discoverable",
+      "failure_risk": "medium",
+      "reversibility": "high",
+      "verification_strength": "medium",
+      "time_to_value": "fast",
+      "scope_fit": "tight",
+      "counter_coverage": "partial",
+      "producer_alignment": "medium",
+      "why_rejected_or_selected": "Rejected because it may leave the glossary undiscoverable.",
+      "receipt_status": "complete"
+    },
+    {
+      "route_id": "route-defer-for-source",
+      "route_name": "Defer pending term source",
+      "grade": "B",
+      "score_out_of_10": 8.2,
+      "threshold": "below A-",
+      "status": "reserved",
+      "score_reason": "Safe fallback if terminology source is disputed.",
+      "reason_5_words": "Safe fallback, slower value",
+      "failure_risk": "low",
+      "reversibility": "high",
+      "verification_strength": "high",
+      "time_to_value": "slow",
+      "scope_fit": "narrow",
+      "counter_coverage": "complete",
+      "producer_alignment": "medium",
+      "why_rejected_or_selected": "Reserved because current public terms are sufficient for a small example.",
+      "receipt_status": "complete"
+    }
+  ]
+}

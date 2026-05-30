@@ -1,0 +1,26 @@
+{
+  "receipt_id": "countermap-public-glossary-docs",
+  "mode": "standard",
+  "counter_budget": 8,
+  "all_counters_selected": [
+    "docs-index-check",
+    "term-source-check",
+    "public-claim-scan",
+    "link-check",
+    "private-scan"
+  ],
+  "counters_reserved": ["manual-render-review", "rollback-exact-file"],
+  "counters_not_needed": ["deploy-check", "runtime-smoke-test"],
+  "failure_to_counter_mapping": [
+    {
+      "failure": "public_navigation_gap",
+      "counters": ["docs-index-check", "link-check"]
+    },
+    {
+      "failure": "unsupported_claim_drift",
+      "counters": ["public-claim-scan", "term-source-check"]
+    }
+  ],
+  "verification_counters": ["link-check", "private-scan"],
+  "rollback_counters": ["rollback-exact-file"]
+}

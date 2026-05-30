@@ -1,0 +1,23 @@
+{
+  "receipt_id": "failure-radar-public-glossary-docs",
+  "mode": "standard",
+  "grade": "A-",
+  "score_out_of_10": 9.08,
+  "threshold": "A- >= 9.00",
+  "status": "accepted",
+  "reason": "Small docs task with public-safety and navigation risk.",
+  "top_failure_families": [
+    {
+      "failure_id": "public_navigation_gap",
+      "score_out_of_10": 8.6,
+      "reason": "Glossary must be discoverable from docs index."
+    },
+    {
+      "failure_id": "unsupported_claim_drift",
+      "score_out_of_10": 8.2,
+      "reason": "Glossary must not imply runtime capability."
+    }
+  ],
+  "first_safe_action": "Inspect docs index and existing terminology.",
+  "stop_conditions": ["private term appears", "unsupported claim appears"]
+}

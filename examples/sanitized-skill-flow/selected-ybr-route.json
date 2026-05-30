@@ -1,0 +1,24 @@
+{
+  "selected_route": true,
+  "selected_route_id": "route-docs-index-first",
+  "grade": "A+",
+  "score_out_of_10": 9.78,
+  "threshold": "A+ >= 9.75",
+  "why_this_route_wins": "It makes the glossary discoverable while keeping the edit small, public-safe, reversible, and verifiable.",
+  "winning_score_factors": ["discoverability", "reversibility", "verification strength", "scope fit"],
+  "rejected_route_summary": "Glossary-only was less discoverable; defer-for-source was slower and unnecessary for the sanitized example.",
+  "rejected_route_receipts": ["route-glossary-only", "route-defer-for-source"],
+  "route_weighted_scoring_rubric": {
+    "impact": 0.22,
+    "safety": 0.2,
+    "verification_strength": 0.2,
+    "public_safety_fit": 0.18,
+    "complexity_penalty": 0.1,
+    "confidence": 0.1
+  },
+  "next_gates": ["write glossary", "link from docs index", "run local checks"],
+  "stop_conditions": ["private term appears", "link check fails", "claim scan fails"],
+  "countermap_requirements": ["docs-index-check", "link-check", "private-scan"],
+  "gate_runner_implications": ["docs-only execution window", "no runtime commands"],
+  "receipt_status": "complete"
+}

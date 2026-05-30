@@ -1,0 +1,20 @@
+{
+  "ledger_entry_id": "ozledger-public-glossary-docs-001",
+  "receipt_id": "OzReceipt-public-glossary-docs",
+  "event_type": "oz-result-closeout",
+  "truth_state": "verified",
+  "relationships": [
+    {
+      "from": "public_navigation_gap",
+      "edge": "counters",
+      "to": "docs-index-check"
+    },
+    {
+      "from": "route-docs-index-first",
+      "edge": "verifies",
+      "to": "gate-2-links"
+    }
+  ],
+  "next_gate": "visual review",
+  "public_safe": true
+}

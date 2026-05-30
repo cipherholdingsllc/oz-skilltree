@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/oz-start-ledger.schema.json",
+  "title": "OzStartLedger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "oztriage_receipt",
+    "failure_radar_receipt",
+    "countermap_receipt",
+    "ybr_route_candidate_ledger",
+    "selected_ybr_route_receipt",
+    "route_weighted_scoring_rubric",
+    "upgrade_candidate_ledger",
+    "gate_runner_receipt"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string" },
+    "oztriage_receipt": { "type": "string" },
+    "failure_radar_receipt": { "type": "string" },
+    "countermap_receipt": { "type": "string" },
+    "ybr_route_candidate_ledger": { "type": "string" },
+    "selected_ybr_route_receipt": { "type": "string" },
+    "route_weighted_scoring_rubric": { "type": "object" },
+    "upgrade_candidate_ledger": { "type": "array", "items": { "type": "string" } },
+    "gate_runner_receipt": { "type": "string" }
+  }
+}

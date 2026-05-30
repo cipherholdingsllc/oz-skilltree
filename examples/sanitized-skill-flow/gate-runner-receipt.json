@@ -1,0 +1,27 @@
+{
+  "receipt_id": "gate-runner-public-glossary-docs",
+  "selected_route_id": "route-docs-index-first",
+  "execution_window": "L2 docs-only write, then L3 local verification",
+  "grade": "A",
+  "score_out_of_10": 9.45,
+  "threshold": "A >= 9.35",
+  "status": "open_safe_window",
+  "reason": "Selected route is reversible, public-safe, and locally verifiable.",
+  "gates": [
+    {
+      "gate_id": "gate-1-write",
+      "expected_evidence": "glossary page and docs index changed",
+      "status": "planned"
+    },
+    {
+      "gate_id": "gate-2-links",
+      "expected_evidence": "link check passes",
+      "status": "planned"
+    },
+    {
+      "gate_id": "gate-3-private-scan",
+      "expected_evidence": "private scan passes",
+      "status": "planned"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/domain-producer-receipt.schema.json",
+  "title": "DomainProducerReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "primary_producer",
+    "secondary_producers",
+    "safety_producers",
+    "rejected_producers",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "status",
+    "reason"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string" },
+    "primary_producer": { "type": "string" },
+    "secondary_producers": { "type": "array", "items": { "type": "string" } },
+    "safety_producers": { "type": "array", "items": { "type": "string" } },
+    "rejected_producers": { "type": "array", "items": { "type": "string" } },
+    "grade": { "type": "string" },
+    "score_out_of_10": { "type": "number", "minimum": 0, "maximum": 10 },
+    "threshold": { "type": "string" },
+    "status": { "type": "string" },
+    "reason": { "type": "string" },
+    "stop_condition": { "type": "string" }
+  }
+}

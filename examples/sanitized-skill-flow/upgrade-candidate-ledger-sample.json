@@ -1,0 +1,45 @@
+{
+  "ledger_id": "upgrade-candidate-ledger-public-glossary-docs-sample",
+  "route_weighted_scoring_rubric": {
+    "selected_route_id": "route-docs-index-first",
+    "rubric_ref": "selected-ybr-route.json"
+  },
+  "candidate_count_model": "Public fixture shows a compact sample; complex goals may require full 200 candidate consideration.",
+  "sample_candidates": [
+    {
+      "candidate_id": "cand-001",
+      "title": "Add concise glossary page",
+      "grade": "A+",
+      "score_out_of_10": 9.81,
+      "threshold": "A+ >= 9.75",
+      "status": "incorporate",
+      "reason_5_words": "High clarity, low risk",
+      "why_powerful": "Improves term comprehension without expanding scope.",
+      "route_alignment": "Directly supports index-first route.",
+      "where_applied": "Execution plan and docs prompt",
+      "approval_scope_required": "L2"
+    },
+    {
+      "candidate_id": "cand-002",
+      "title": "Link glossary from docs index",
+      "grade": "A+",
+      "score_out_of_10": 9.77,
+      "threshold": "A+ >= 9.75",
+      "status": "incorporate",
+      "reason_5_words": "Makes glossary discoverable immediately",
+      "why_powerful": "Closes the primary navigation gap.",
+      "route_alignment": "Required by selected route.",
+      "where_applied": "Execution plan",
+      "approval_scope_required": "L2"
+    },
+    {
+      "candidate_id": "cand-003",
+      "title": "Add generated diagram",
+      "grade": "C",
+      "score_out_of_10": 5.4,
+      "threshold": "below A-",
+      "status": "reject",
+      "reason_5_words": "Visual bloat without proof"
+    }
+  ]
+}

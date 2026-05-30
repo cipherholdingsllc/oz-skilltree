@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/selected-ybr-route.schema.json",
+  "title": "SelectedYBRRouteReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "selected_route",
+    "selected_route_id",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "why_this_route_wins",
+    "winning_score_factors",
+    "rejected_route_summary",
+    "rejected_route_receipts",
+    "route_weighted_scoring_rubric",
+    "next_gates",
+    "stop_conditions",
+    "countermap_requirements",
+    "gate_runner_implications",
+    "receipt_status"
+  ],
+  "properties": {
+    "selected_route": { "const": true },
+    "selected_route_id": { "type": "string" },
+    "grade": { "type": "string" },
+    "score_out_of_10": { "type": "number", "minimum": 0, "maximum": 10 },
+    "threshold": { "type": "string" },
+    "why_this_route_wins": { "type": "string" },
+    "winning_score_factors": { "type": "array", "items": { "type": "string" } },
+    "rejected_route_summary": { "type": "string" },
+    "rejected_route_receipts": { "type": "array", "items": { "type": "string" } },
+    "route_weighted_scoring_rubric": { "type": "object" },
+    "next_gates": { "type": "array", "items": { "type": "string" } },
+    "stop_conditions": { "type": "array", "items": { "type": "string" } },
+    "countermap_requirements": { "type": "array", "items": { "type": "string" } },
+    "gate_runner_implications": { "type": "array", "items": { "type": "string" } },
+    "receipt_status": { "type": "string" }
+  }
+}

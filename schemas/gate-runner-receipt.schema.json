@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/gate-runner-receipt.schema.json",
+  "title": "GateRunnerReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "selected_route_id",
+    "execution_window",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "status",
+    "reason",
+    "gates"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string" },
+    "selected_route_id": { "type": "string" },
+    "execution_window": { "type": "string" },
+    "grade": { "type": "string" },
+    "score_out_of_10": { "type": "number", "minimum": 0, "maximum": 10 },
+    "threshold": { "type": "string" },
+    "status": { "type": "string" },
+    "reason": { "type": "string" },
+    "gates": { "type": "array", "items": { "type": "object" } }
+  }
+}

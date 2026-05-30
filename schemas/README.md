@@ -14,6 +14,15 @@ Supporting schemas:
 
 - [bug-cognizant.schema.json](bug-cognizant.schema.json)
 - [failure-atlas.schema.json](failure-atlas.schema.json) for public Failure Atlas metadata and source-boundary flags
+- [domain-producer-receipt.schema.json](domain-producer-receipt.schema.json)
+- [scoring-receipt.schema.json](scoring-receipt.schema.json)
+- [countermap-receipt.schema.json](countermap-receipt.schema.json)
+- [ybr-route-candidate.schema.json](ybr-route-candidate.schema.json)
+- [selected-ybr-route.schema.json](selected-ybr-route.schema.json)
+- [upgrade-candidate.schema.json](upgrade-candidate.schema.json)
+- [gate-runner-receipt.schema.json](gate-runner-receipt.schema.json)
+- [ozledger-entry.schema.json](ozledger-entry.schema.json)
+- [oz-start-ledger.schema.json](oz-start-ledger.schema.json)
 
 Validate with:
 

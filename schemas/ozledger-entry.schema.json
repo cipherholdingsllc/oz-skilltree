@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/ozledger-entry.schema.json",
+  "title": "OzLedgerEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ledger_entry_id", "receipt_id", "event_type", "truth_state", "relationships", "next_gate", "public_safe"],
+  "properties": {
+    "ledger_entry_id": { "type": "string" },
+    "receipt_id": { "type": "string" },
+    "event_type": { "type": "string" },
+    "truth_state": { "enum": ["claimed", "observed", "verified", "committed", "pushed", "deployed", "delivered"] },
+    "relationships": { "type": "array", "items": { "type": "object" } },
+    "next_gate": { "type": "string" },
+    "public_safe": { "type": "boolean" }
+  }
+}

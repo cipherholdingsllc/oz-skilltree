@@ -3,15 +3,11 @@ import path from "node:path";
 
 const root = process.cwd();
 
-const requiredSchemas = [
-  "schemas/ozreceipt.schema.json",
-  "schemas/oz-result.schema.json",
-  "schemas/failure-radar.schema.json",
-  "schemas/countermap.schema.json",
-  "schemas/bug-cognizant.schema.json",
-  "schemas/failure-atlas.schema.json",
-  "schemas/ybr-route.schema.json"
-];
+const schemaEntries = await readdir(path.join(root, "schemas"), { withFileTypes: true });
+const requiredSchemas = schemaEntries
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".schema.json"))
+  .map((entry) => `schemas/${entry.name}`)
+  .sort();
 
 const requiredByFile = {
   "ozreceipt.json": [
@@ -97,6 +93,87 @@ const requiredByFile = {
     "verification_hooks",
     "what_not_to_build_yet",
     "recommended_architecture"
+  ],
+  "oztriage-receipt.json": [
+    "receipt_id",
+    "primary_producer",
+    "secondary_producers",
+    "safety_producers",
+    "rejected_producers",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "status",
+    "reason"
+  ],
+  "failure-radar-receipt.json": [
+    "receipt_id",
+    "mode",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "status",
+    "reason",
+    "top_failure_families"
+  ],
+  "countermap-receipt.json": [
+    "receipt_id",
+    "mode",
+    "counter_budget",
+    "all_counters_selected",
+    "counters_reserved",
+    "counters_not_needed",
+    "failure_to_counter_mapping",
+    "verification_counters",
+    "rollback_counters"
+  ],
+  "ybr-route-candidate-ledger.json": [
+    "ledger_id",
+    "why_route_count_was_sufficient",
+    "route_candidates"
+  ],
+  "selected-ybr-route.json": [
+    "selected_route",
+    "selected_route_id",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "why_this_route_wins",
+    "winning_score_factors",
+    "rejected_route_summary",
+    "rejected_route_receipts",
+    "route_weighted_scoring_rubric",
+    "next_gates",
+    "stop_conditions",
+    "countermap_requirements",
+    "gate_runner_implications",
+    "receipt_status"
+  ],
+  "upgrade-candidate-ledger-sample.json": [
+    "ledger_id",
+    "route_weighted_scoring_rubric",
+    "candidate_count_model",
+    "sample_candidates"
+  ],
+  "gate-runner-receipt.json": [
+    "receipt_id",
+    "selected_route_id",
+    "execution_window",
+    "grade",
+    "score_out_of_10",
+    "threshold",
+    "status",
+    "reason",
+    "gates"
+  ],
+  "ozledger-entry.json": [
+    "ledger_entry_id",
+    "receipt_id",
+    "event_type",
+    "truth_state",
+    "relationships",
+    "next_gate",
+    "public_safe"
   ]
 };
 
@@ -138,10 +215,26 @@ for (const entry of exampleEntries.filter((item) => item.isDirectory())) {
     if (file === "failure-radar.json") {
       assert(["scan", "standard", "deep", "max"].includes(data.mode), `${exampleName}/${file} has invalid mode`);
     }
+    if (file === "ybr-route-candidate-ledger.json") {
+      assert(Array.isArray(data.route_candidates), `${exampleName}/${file} route_candidates must be an array`);
+      for (const route of data.route_candidates) {
+        for (const key of ["route_id", "route_name", "grade", "score_out_of_10", "threshold", "status", "why_rejected_or_selected"]) {
+          assert(Object.hasOwn(route, key), `${exampleName}/${file} route candidate missing ${key}`);
+        }
+      }
+    }
+    if (file === "upgrade-candidate-ledger-sample.json") {
+      assert(Array.isArray(data.sample_candidates), `${exampleName}/${file} sample_candidates must be an array`);
+      for (const candidate of data.sample_candidates) {
+        for (const key of ["candidate_id", "title", "grade", "score_out_of_10", "threshold", "status", "reason_5_words"]) {
+          assert(Object.hasOwn(candidate, key), `${exampleName}/${file} candidate missing ${key}`);
+        }
+      }
+    }
     checked += 1;
   }
 }
 
-assert(checked >= 16, `expected at least 16 example JSON files, checked ${checked}`);
+assert(checked >= 25, `expected at least 25 example JSON files, checked ${checked}`);
 
 console.log(`schemas valid; checked ${requiredSchemas.length} schemas and ${checked} example JSON files`);

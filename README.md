@@ -18,9 +18,15 @@ Core promise: **Predict failure. Route safely. Prove the result. Leave a receipt
 ## Start Here
 
 - [Architecture map](docs/architecture-map.md)
+- [Skill flow](docs/skill-flow.md)
+- [Route-aware /oz-start](docs/oz-start.md)
+- [YBR route selection](docs/ybr-route-selection.md)
+- [Candidate ledgers](docs/candidate-ledgers.md)
 - [Domain producers](docs/domain-producers.md)
+- [Scoring rubric](docs/scoring-rubric.md)
 - [Countermap receipts](docs/countermap-receipts.md)
 - [Receipt graph](docs/receipt-graph.md)
+- [Sanitized skill-flow example](examples/sanitized-skill-flow/)
 - [Sanitized gate-runner example](examples/sanitized-gate-runner-receipt/)
 - [Release checklist](RELEASE.md)
 

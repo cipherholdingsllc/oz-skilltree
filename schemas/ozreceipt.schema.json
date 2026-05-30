@@ -12,6 +12,8 @@
     "source_of_truth",
     "repo_context",
     "approval_ceiling",
+    "truth_state",
+    "domain_stack",
     "candidate_universe_receipt",
     "failure_radar_mode",
     "top_failure_families",
@@ -45,6 +47,8 @@
       }
     },
     "approval_ceiling": { "enum": ["L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8"] },
+    "truth_state": { "enum": ["claimed", "observed", "verified", "committed", "pushed", "deployed", "delivered"] },
+    "domain_stack": { "type": "array", "items": { "type": "string" } },
     "candidate_universe_receipt": { "type": "string" },
     "failure_radar_mode": { "enum": ["scan", "standard", "deep", "max"] },
     "top_failure_families": { "type": "array", "items": { "type": "string" } },
@@ -58,6 +62,34 @@
     "verification": { "type": "array", "items": { "type": "string" } },
     "rejected_routes": { "type": "array", "items": { "type": "object" } },
     "next_gate": { "type": "string" },
+    "scoring_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["grade", "score_out_of_10", "threshold", "status", "reason"],
+        "properties": {
+          "grade": { "type": "string" },
+          "score_out_of_10": { "type": "number", "minimum": 0, "maximum": 10 },
+          "threshold": { "type": "string" },
+          "status": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "trigger_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["trigger_name", "threshold", "actual_score", "triggered"],
+        "properties": {
+          "trigger_name": { "type": "string" },
+          "threshold": { "type": "string" },
+          "actual_score": { "type": "number", "minimum": 0, "maximum": 10 },
+          "triggered": { "type": "boolean" },
+          "skip_reason": { "type": "string" }
+        }
+      }
+    },
     "negative_memory": { "type": "array", "items": { "type": "string" } },
     "public_private_classification": { "enum": ["public_safe", "conditional", "private_internal"] }
   }

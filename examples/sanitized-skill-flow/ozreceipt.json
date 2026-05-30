@@ -1,0 +1,52 @@
+{
+  "receipt_id": "OzReceipt-public-glossary-docs",
+  "status": "closed",
+  "goal": "Add a public-safe glossary page to a documentation repository.",
+  "lane": "documentation",
+  "source_of_truth": ["public docs index", "public protocol docs"],
+  "repo_context": {
+    "repo": "public-docs-example",
+    "worktree": "local",
+    "root_path": "/repo",
+    "branch": "public-docs",
+    "commit_sha": "example"
+  },
+  "approval_ceiling": "L3",
+  "truth_state": "verified",
+  "domain_stack": ["DocumentationProducer", "ClaimsSafetyProducer"],
+  "candidate_universe_receipt": "upgrade-candidate-ledger-sample.json",
+  "failure_radar_mode": "standard",
+  "top_failure_families": ["public_navigation_gap", "unsupported_claim_drift"],
+  "countermap": { "ref": "countermap-receipt.json" },
+  "ybr_route": { "ref": "selected-ybr-route.json" },
+  "execution_prompt": "Add the glossary page, link it from docs index, run local checks, stop on private terms.",
+  "stop_conditions": ["private term appears", "link check fails", "private scan fails"],
+  "truth_state_updates": [{ "from": "claimed", "to": "verified", "evidence": "local checks passed" }],
+  "files_changed": ["docs/glossary.md", "docs/README.md"],
+  "commands_run": ["npm run check:links", "npm run check:private"],
+  "verification": ["link check passed", "private scan passed"],
+  "rejected_routes": [
+    { "route_id": "route-glossary-only", "why": "less discoverable" },
+    { "route_id": "route-defer-for-source", "why": "unneeded for public-safe sample" }
+  ],
+  "next_gate": "visual review",
+  "negative_memory": ["Do not treat a glossary page as proof of runtime capability."],
+  "public_private_classification": "public_safe",
+  "scoring_events": [
+    {
+      "grade": "A+",
+      "score_out_of_10": 9.78,
+      "threshold": "A+ >= 9.75",
+      "status": "selected",
+      "reason": "Selected route is the best public-safe route."
+    }
+  ],
+  "trigger_decisions": [
+    {
+      "trigger_name": "gate-runner",
+      "threshold": "standard docs task",
+      "actual_score": 9.45,
+      "triggered": true
+    }
+  ]
+}

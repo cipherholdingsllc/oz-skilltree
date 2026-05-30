@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/oz-skilltree/upgrade-candidate.schema.json",
+  "title": "UpgradeCandidateReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_id", "title", "grade", "score_out_of_10", "threshold", "status", "reason_5_words"],
+  "properties": {
+    "candidate_id": { "type": "string" },
+    "title": { "type": "string" },
+    "grade": { "type": "string" },
+    "score_out_of_10": { "type": "number", "minimum": 0, "maximum": 10 },
+    "threshold": { "type": "string" },
+    "status": { "type": "string" },
+    "reason_5_words": { "type": "string" },
+    "why_powerful": { "type": "string" },
+    "route_alignment": { "type": "string" },
+    "where_applied": { "type": "string" },
+    "approval_scope_required": { "type": "string" }
+  }
+}

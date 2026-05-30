@@ -8,6 +8,7 @@ Open these first:
 2. [bug-cognizant-dashboard-module](bug-cognizant-dashboard-module/) for future-build prediction.
 3. [pr-review-routing-split](pr-review-routing-split/) for review/verification/patch separation.
 4. [sanitized-gate-runner-receipt](sanitized-gate-runner-receipt/) for gate-runner receipt flow.
+5. [sanitized-skill-flow](sanitized-skill-flow/) for route-aware `/oz-start`, route ledgers, and OzLedger entry shape.
 
 Each example includes:
 

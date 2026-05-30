@@ -1,0 +1,13 @@
+{
+  "receipt_id": "oztriage-public-glossary-docs",
+  "primary_producer": "DocumentationProducer",
+  "secondary_producers": ["GitProducer"],
+  "safety_producers": ["ClaimsSafetyProducer"],
+  "rejected_producers": ["VercelDeployProducer", "SkillCreationProducer"],
+  "grade": "A",
+  "score_out_of_10": 9.42,
+  "threshold": "A >= 9.35",
+  "status": "selected",
+  "reason": "DocumentationProducer owns glossary structure and link verification.",
+  "stop_condition": "Stop if public/private boundary or source of truth is unclear."
+}
