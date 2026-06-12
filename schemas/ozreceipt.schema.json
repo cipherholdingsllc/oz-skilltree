@@ -50,7 +50,7 @@
     "truth_state": { "enum": ["claimed", "observed", "verified", "committed", "pushed", "deployed", "delivered"] },
     "domain_stack": { "type": "array", "items": { "type": "string" } },
     "candidate_universe_receipt": { "type": "string" },
-    "failure_radar_mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "failure_radar_mode": { "enum": ["scan", "standard", "standard+", "deep-lite", "deep", "max"] },
     "top_failure_families": { "type": "array", "items": { "type": "string" } },
     "countermap": { "type": "object" },
     "ybr_route": { "type": "object" },
@@ -91,6 +91,17 @@
       }
     },
     "negative_memory": { "type": "array", "items": { "type": "string" } },
+    "negative_memory_retrieval": {
+      "type": "object",
+      "required": ["searched", "hits"],
+      "properties": {
+        "searched": { "type": "boolean" },
+        "query_basis": { "type": "string" },
+        "hits": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "context_fingerprint": { "type": "object" },
+    "truth_state_proof": { "type": "object" },
     "public_private_classification": { "enum": ["public_safe", "conditional", "private_internal"] }
   }
 }

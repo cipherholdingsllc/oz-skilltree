@@ -16,12 +16,20 @@ approval_ceiling:
 failure_radar_mode:
 public_private_classification:
 truth_state: claimed
+context_fingerprint:        # node scripts/context-fingerprint.mjs
+negative_memory_retrieval:
+  searched: false           # gate: must be true before mode selection
+  query_basis:
+  hits: []
+truth_state_proof: {}       # per-state proof contracts; see wiki/Truth-States.md
 created_at:
 updated_at:
 trace_refs: []
 future_retrieval_tags: []
 receipt_completeness_score:
 ```
+
+## Negative-Memory Retrieval (mandatory gate)
 
 ## Candidate Universe Receipt
 
@@ -48,5 +56,7 @@ receipt_completeness_score:
 ## Rejected Routes
 
 ## Negative Memory
+
+## Failure-Inbox Drain
 
 ## Next Gate

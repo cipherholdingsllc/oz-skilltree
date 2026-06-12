@@ -38,7 +38,10 @@
     "validate:schemas": "node scripts/validate-schemas.mjs",
     "check:links": "node scripts/check-doc-links.mjs",
     "check:private": "node scripts/check-private-leaks.mjs",
-    "test": "npm run validate:schemas && npm run check:links && npm run check:private"
+    "check:surfaces": "node scripts/check-stable-surfaces.mjs",
+    "eval:structural": "node scripts/run-structural-evals.mjs",
+    "fingerprint": "node scripts/context-fingerprint.mjs",
+    "test": "npm run validate:schemas && npm run check:links && npm run check:private && npm run check:surfaces && npm run eval:structural"
   },
   "engines": {
     "node": ">=18"

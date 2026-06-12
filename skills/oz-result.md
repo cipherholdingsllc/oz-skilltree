@@ -10,7 +10,7 @@ Purpose: close out an active OzReceipt with evidence.
 
 ## Always Update
 
-- truth state
+- truth state (with its proof contract — a state without proof is recorded one rung lower)
 - counter attempt log
 - counter results
 - negative memory
@@ -20,4 +20,8 @@ Purpose: close out an active OzReceipt with evidence.
 - commands run
 - verification evidence
 
-Close only when the verified threshold is met, no unresolved stop condition remains, and completeness score passes.
+## Failure-Inbox Drain (mandatory)
+
+Drain the session failure inbox before close: every pending entry is classified as (a) evidence for an existing failure family, (b) a candidate new-family observation, or (c) explicitly-marked noise. Close is blocked while unclassified entries remain, unless they are carried forward with a stated reason. See [../docs/session-continuity.md](../docs/session-continuity.md).
+
+Close only when the verified threshold is met, no unresolved stop condition remains, the inbox is drained, and completeness score passes.

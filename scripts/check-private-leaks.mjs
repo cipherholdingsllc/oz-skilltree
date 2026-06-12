@@ -28,6 +28,19 @@ const unsafePublicPatterns = [
   /guarantees zero bugs/i
 ];
 
+// Local extension hook: private literal patterns live in a gitignored file so
+// the denylist itself can never leak. CI runs public-safe categories only;
+// the local file is the mandatory pre-push layer (see RELEASE.md).
+try {
+  const local = await import("./check-private-leaks.local.mjs");
+  secretPatterns.push(...(local.secretPatterns ?? []));
+  privatePathPatterns.push(...(local.privatePathPatterns ?? []));
+  unsafePublicPatterns.push(...(local.unsafePublicPatterns ?? []));
+  console.log("local leak-pattern extension loaded");
+} catch {
+  // no local extension present; public-safe patterns only
+}
+
 const policyLinePattern = /\b(do not|must not|should not|not a|not be|no |without|prohibit|forbid|reject|avoid|does not)\b/i;
 
 const files = [];

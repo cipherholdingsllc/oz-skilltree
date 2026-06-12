@@ -7,15 +7,17 @@ It is route-aware, not just upgrade-aware. Its job is to establish the safest us
 ## Order
 
 1. Create or draft the OzReceipt namespace.
-2. Run OzTriage.
-3. Select Domain Producers.
-4. Run Failure Radar.
-5. Build Countermap.
-6. Run YBR route selection.
-7. Create the selected route and route-weighted scoring rubric.
-8. Generate the 200 Upgrade Candidate Ledger.
-9. Incorporate A/A+ candidates into the plan, prompt, and route package.
-10. Hand the safe window to Gate Runner.
+2. Capture the context fingerprint into the receipt.
+3. Run the negative-memory retrieval gate (mandatory; "no hits" recorded is valid, a missing block is a halt).
+4. Run OzTriage.
+5. Select Domain Producers.
+6. Run Failure Radar (retrieval hits feed family ranking).
+7. Build Countermap.
+8. Run YBR route selection.
+9. Create the selected route and route-weighted scoring rubric.
+10. Generate the 200 Upgrade Candidate Ledger.
+11. Incorporate A/A+ candidates into the plan, prompt, and route package.
+12. Hand the safe window to Gate Runner.
 
 ## Mutation Boundary
 
