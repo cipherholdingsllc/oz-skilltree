@@ -3,7 +3,9 @@
   "status": "closed",
   "goal": "Show how Bug-Cognizant hands off to oz-start.",
   "lane": "architecture-planning",
-  "source_of_truth": ["operator module brief"],
+  "source_of_truth": [
+    "operator module brief"
+  ],
   "repo_context": {
     "repo": "example",
     "worktree": "local",
@@ -14,17 +16,46 @@
   "approval_ceiling": "L1",
   "candidate_universe_receipt": "Not applicable; example demonstrates no implementation.",
   "failure_radar_mode": "standard",
-  "top_failure_families": ["requirements_or_goal_ambiguity"],
-  "countermap": { "ref": "countermap.json" },
-  "ybr_route": { "ref": "ybr-route.json" },
+  "top_failure_families": [
+    "requirements_or_goal_ambiguity"
+  ],
+  "countermap": {
+    "ref": "countermap.json"
+  },
+  "ybr_route": {
+    "ref": "ybr-route.json"
+  },
   "execution_prompt": "Produce future build surface map only.",
-  "stop_conditions": ["implementation requested"],
-  "truth_state_updates": [{ "from": "claimed", "to": "observed", "evidence": "map completed" }],
-  "files_changed": ["future build surface map"],
+  "stop_conditions": [
+    "implementation requested"
+  ],
+  "truth_state_updates": [
+    {
+      "from": "claimed",
+      "to": "observed",
+      "evidence": "map completed"
+    }
+  ],
+  "files_changed": [
+    "future build surface map"
+  ],
   "commands_run": [],
-  "verification": ["non-goals and hooks present"],
-  "rejected_routes": [{ "route": "build dashboard now", "why": "no active implementation receipt" }],
+  "verification": [
+    "non-goals and hooks present"
+  ],
+  "rejected_routes": [
+    {
+      "route": "build dashboard now",
+      "why": "no active implementation receipt"
+    }
+  ],
   "next_gate": "Invoke /oz-start before coding.",
-  "negative_memory": ["Do not let planning lens create receipts silently."],
-  "public_private_classification": "public_safe"
+  "negative_memory": [
+    "Do not let planning lens create receipts silently."
+  ],
+  "public_private_classification": "public_safe",
+  "truth_state": "observed",
+  "domain_stack": [
+    "ArchitecturePlanningProducer"
+  ]
 }

@@ -32,6 +32,26 @@
     "commands_run": { "type": "array", "items": { "type": "string" } },
     "verification": { "type": "array", "items": { "type": "string" } },
     "closed": { "type": "boolean" },
-    "next_gate": { "type": "string" }
+    "next_gate": { "type": "string" },
+    "failure_inbox_drain": {
+      "type": "object",
+      "required": ["drained", "pending_entries"],
+      "properties": {
+        "drained": { "type": "boolean" },
+        "pending_entries": { "type": "integer", "minimum": 0 },
+        "carried_forward": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "truth_state_proof": {
+      "type": "object",
+      "properties": {
+        "observed": { "type": "object" },
+        "verified": { "type": "object", "properties": { "command": { "type": "string" }, "exit_code": { "type": "integer" }, "output_excerpt": { "type": "string" } } },
+        "committed": { "type": "object", "properties": { "commit_sha": { "type": "string" } } },
+        "pushed": { "type": "object", "properties": { "remote_ref": { "type": "string" } } },
+        "deployed": { "type": "object", "properties": { "artifact_hash": { "type": "string" }, "deploy_id": { "type": "string" }, "status_output": { "type": "string" } } },
+        "delivered": { "type": "object", "properties": { "ack_ref": { "type": "string" } } }
+      }
+    }
   }
 }

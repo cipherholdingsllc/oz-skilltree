@@ -18,6 +18,9 @@ An OzReceipt must include:
 - goal
 - lane
 - source of truth
+- approval ceiling
+- repo context with context fingerprint
+- negative-memory retrieval block (mandatory at start; "searched, no hits" is valid)
 - candidate universe receipt
 - selected Failure Radar mode
 - top failure families
@@ -30,6 +33,7 @@ An OzReceipt must include:
 - commands run
 - verification
 - rejected routes
+- negative memory and future retrieval tags
 - next gate
 
 ## Truth State Rules
@@ -38,10 +42,8 @@ Truth states:
 
 `claimed -> observed -> verified -> committed -> pushed -> deployed -> delivered`
 
-Never collapse `claimed` into `verified`. Never collapse `committed` into `pushed`.
+Never collapse `claimed` into `verified`. Never collapse `committed` into `pushed`. Each state above `claimed` carries a proof contract — a state recorded without its proof is reported one rung lower (see [../wiki/Truth-States.md](../wiki/Truth-States.md)).
 
 ## Storage
 
-Real receipts belong in [../wiki/Receipts/](../wiki/Receipts/). Example receipts belong under [../examples/](../examples/).
-
-Do not commit private receipts to a public repo unless they have passed public/private classification and claims-safety review.
+Real receipts live in private vaults — never in this public repository (`receipts/` is gitignored except `receipts/fixtures/`). Example receipts live under [../examples/](../examples/); sanitized field receipts are published in batches through [../field-receipts/](../field-receipts/) after passing `npm run check:private` and operator review.

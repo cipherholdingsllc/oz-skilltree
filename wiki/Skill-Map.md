@@ -9,7 +9,8 @@ Back to [[Home]].
 | Failure Radar | failure-family prediction | [../skills/failure-radar.md](../skills/failure-radar.md) |
 | Countermap-50 | counter planning | [../skills/countermap-50.md](../skills/countermap-50.md) |
 | YellowBrickRoad | route selection | [../skills/ybr.md](../skills/ybr.md) |
-| `/oz-result` | closeout and truth-state update | [../skills/oz-result.md](../skills/oz-result.md) |
+| `/oz-result` | closeout, proof contracts, failure-inbox drain | [../skills/oz-result.md](../skills/oz-result.md) |
+| `/oz-handoff` | compress an active receipt into a resumable brief | [../commands/oz-handoff.md](../commands/oz-handoff.md) |
 | Bug-Cognizant | future-build-aware architecture prediction | [../skills/bug-cognizant.md](../skills/bug-cognizant.md) |
 
 Related:

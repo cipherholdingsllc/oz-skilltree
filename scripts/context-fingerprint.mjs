@@ -33,6 +33,12 @@ for (const lf of ["package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb
 }
 
 const dirtyLines = git("status", "--porcelain");
+const pmByLockfile = {
+  "package-lock.json": "npm",
+  "yarn.lock": "yarn",
+  "pnpm-lock.yaml": "pnpm",
+  "bun.lockb": "bun"
+};
 const fingerprint = {
   captured_at: new Date().toISOString(),
   repo_dir: path.basename(process.cwd()),
@@ -40,7 +46,7 @@ const fingerprint = {
   head: git("rev-parse", "--short", "HEAD"),
   dirty_file_count: dirtyLines === "(not a git repository)" ? null : dirtyLines === "" ? 0 : dirtyLines.split("\n").length,
   lockfiles,
-  package_manager_signal: lockfiles.length === 1 ? lockfiles[0].split(/[-.]/)[0] : lockfiles.length === 0 ? "none-detected" : "AMBIGUOUS-multiple-lockfiles",
+  package_manager_signal: lockfiles.length === 1 ? pmByLockfile[lockfiles[0]] : lockfiles.length === 0 ? "none-detected" : "AMBIGUOUS-multiple-lockfiles",
   node_version: process.version
 };
 
@@ -53,8 +59,12 @@ if (process.argv.includes("--json")) {
     console.log(`  ${key}: ${Array.isArray(value) ? JSON.stringify(value) : value}`);
   }
   console.log("```");
-  if (fingerprint.package_manager_signal.startsWith("AMBIGUOUS")) {
-    console.error("warning: multiple lockfiles present — resolve before mutation");
-    process.exitCode = 2;
-  }
+}
+
+// The ambiguity warning fires in BOTH output modes — the package-manager-
+// mismatch class is exactly what this script exists to catch, and headless
+// harness use (--json) needs the nonzero exit most of all.
+if (fingerprint.package_manager_signal.startsWith("AMBIGUOUS")) {
+  console.error("warning: multiple lockfiles present — resolve before mutation");
+  process.exitCode = 2;
 }

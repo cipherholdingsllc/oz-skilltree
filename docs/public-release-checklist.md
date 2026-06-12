@@ -17,8 +17,8 @@ Use this before pushing the repository to a public remote.
 - [ ] No private implementation details.
 - [ ] No collaborator names or personal data.
 - [ ] No private absolute paths.
-- [ ] No private CipherOS claims in public-facing docs.
-- [ ] No private 2OPMD details in public-facing docs.
+- [ ] No private internal-project claims in public-facing docs.
+- [ ] No private internal-project details in public-facing docs.
 
 ## Claims Review
 

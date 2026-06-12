@@ -8,11 +8,10 @@ Run:
 
 ```sh
 npm test
-npm run validate:schemas
-npm run check:links
-npm run check:private
 git status --short
 ```
+
+`npm test` composes all five checks: `validate:schemas` (schema-derived fixture validation), `check:links`, `check:private` (categories in CI; your gitignored local-extension literals run here too), `check:surfaces`, and `eval:structural`.
 
 The working tree should be clean after the release commit.
 

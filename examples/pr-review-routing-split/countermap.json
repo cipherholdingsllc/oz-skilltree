@@ -1,7 +1,7 @@
 {
   "countermap_id": "cm-pr-review-routing-split",
   "mode": "deep",
-  "max_counters": 10,
+  "max_counters": 25,
   "counters": [
     {
       "counter_id": "c1",
@@ -24,6 +24,9 @@
       "reversibility_score": 5
     }
   ],
-  "reserved_counters": ["scope diff review", "human escalation on ambiguous owner"],
+  "reserved_counters": [
+    "scope diff review",
+    "human escalation on ambiguous owner"
+  ],
   "exhaustion_protocol": "Leave receipt open if verification cannot run."
 }

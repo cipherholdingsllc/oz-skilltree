@@ -18,12 +18,19 @@ function check(name, condition, detail) {
   else failures.push(`${name}: ${detail}`);
 }
 
-// E1 — six-mode doctrine present in docs and all mode-bearing schemas
+// E1 — six-mode doctrine present in every mode-bearing surface: docs, the
+// countermap budget doc, all four schemas, AND the example validator (the
+// surface that previously drifted to a hardcoded four-mode list unseen).
 const registry = JSON.parse(await text("registry/stable-surfaces.json"));
 const radarDoc = await text("docs/failure-radar.md");
+const budgetDoc = await text("docs/countermap-receipts.md");
 for (const mode of registry.modes) {
   check(`E1 mode ${mode} in docs`, radarDoc.includes(`\`${mode}\``), "missing from docs/failure-radar.md");
+  check(`E1 mode ${mode} in budget doc`, budgetDoc.includes(mode), "missing from docs/countermap-receipts.md");
 }
+const validator = await text("scripts/validate-schemas.mjs");
+check("E1 validator reads registry", validator.includes("stable-surfaces.json"), "validate-schemas.mjs does not read the registry — hardcoded mode list risk");
+check("E1 registry has budgets", registry.mode_budgets && Object.keys(registry.mode_budgets).length === registry.modes.length, "mode_budgets missing or incomplete in registry");
 for (const schemaFile of [
   "schemas/failure-radar.schema.json",
   "schemas/ozreceipt.schema.json",
@@ -68,9 +75,15 @@ for (const [file, budget] of Object.entries(budgets.budgets)) {
   check(`E6 ratchet ${file}`, size <= budget, `${size} bytes exceeds budget ${budget}`);
 }
 
-// E7 — receipts boundary present in .gitignore
-const gitignore = await text(".gitignore");
-check("E7 receipts boundary", gitignore.includes("receipts/") && gitignore.includes("!receipts/fixtures/"), "receipts boundary missing from .gitignore");
+// E7 — receipts boundary present in .gitignore (anchored, contents-exclusion
+// form). npm strips .gitignore from published tarballs, so this check skips
+// with a notice outside a git checkout instead of crashing.
+try {
+  const gitignore = await text(".gitignore");
+  check("E7 receipts boundary", gitignore.includes("/receipts/*") && gitignore.includes("!/receipts/fixtures/"), "anchored receipts boundary missing from .gitignore");
+} catch {
+  console.log("E7 skipped: no .gitignore present (npm tarball context — boundary enforced in the git checkout)");
+}
 
 if (failures.length) {
   console.error(failures.join("\n"));

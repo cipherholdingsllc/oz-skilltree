@@ -14,4 +14,6 @@ Supporting skills:
 - [oz-skilltree.md](oz-skilltree.md)
 - [bug-cognizant.md](bug-cognizant.md)
 
+Session continuity (failure inbox, checkpoints, `/oz-handoff` briefs) is a command-plus-doc surface: [../commands/oz-handoff.md](../commands/oz-handoff.md) and [../docs/session-continuity.md](../docs/session-continuity.md).
+
 These are Markdown protocol docs, not runtime activation.

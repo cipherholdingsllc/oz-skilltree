@@ -7,6 +7,7 @@
 ```text
 operator intent
   -> OzReceipt namespace
+  -> context fingerprint + retrieval gate
   -> OzTriage
   -> domain producer stack
   -> failure-radar score receipt
@@ -24,6 +25,7 @@ operator intent
 |---|---|---|
 | operator intent | states the goal, constraints, and desired outcome | goal contract |
 | OzReceipt namespace | names the durable artifact space for the run | receipt ID and file scope |
+| fingerprint + retrieval gate | stamps repo state into the receipt and searches prior receipts/negative memory before routing | fingerprint + retrieval blocks |
 | OzTriage | assigns the domain stack and risk mode | producer stack |
 | domain producers | supply rubrics, failure maps, counters, evidence requirements, forbidden actions, and verification gates | producer packets |
 | Failure Radar | predicts failure families and produces a scored receipt | score receipt |

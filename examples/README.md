@@ -10,13 +10,6 @@ Open these first:
 4. [sanitized-gate-runner-receipt](sanitized-gate-runner-receipt/) for gate-runner receipt flow.
 5. [sanitized-skill-flow](sanitized-skill-flow/) for route-aware `/oz-start`, route ledgers, and OzLedger entry shape.
 
-Each example includes:
+The three scenario examples (1–3) each include: `input.md`, `failure-radar.json`, `countermap.json`, `ybr-route.json`, `ozreceipt.json`, `oz-result.json` (Bug-Cognizant adds `bug-cognizant.json`). The two sanitized examples carry their own file sets — markdown receipt fixtures for the gate-runner example, and the route-ledger receipt chain for the skill-flow example; see each README.
 
-- `input.md`
-- `failure-radar.json`
-- `countermap.json`
-- `ybr-route.json`
-- `ozreceipt.json`
-- `oz-result.json`
-
-The Bug-Cognizant example also includes `bug-cognizant.json`.
+The vercel-build-failure flagship models the current v0.2 receipt shape, including the mandatory `negative_memory_retrieval` block, `context_fingerprint`, `truth_state_proof`, and the `/oz-result` `failure_inbox_drain`. The other fixtures predate those blocks (they remain schema-valid; the blocks are doctrine-mandatory for real runs).

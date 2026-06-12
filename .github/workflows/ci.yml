@@ -19,3 +19,21 @@ jobs:
         with:
           node-version: 20
       - run: npm test
+
+  dco:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require DCO sign-off on every commit
+        run: |
+          missing=0
+          for sha in $(git rev-list origin/${{ github.base_ref }}..HEAD); do
+            if ! git log -1 --format=%B "$sha" | grep -q "^Signed-off-by:"; then
+              echo "::error::commit $sha lacks a Signed-off-by trailer (git commit -s)"
+              missing=1
+            fi
+          done
+          exit $missing

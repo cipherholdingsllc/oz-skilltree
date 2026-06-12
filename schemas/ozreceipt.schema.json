@@ -30,7 +30,7 @@
   ],
   "properties": {
     "receipt_id": { "type": "string", "minLength": 1 },
-    "status": { "enum": ["open", "closed", "blocked"] },
+    "status": { "enum": ["open", "closed", "blocked", "superseded"] },
     "goal": { "type": "string", "minLength": 1 },
     "lane": { "type": "string", "minLength": 1 },
     "source_of_truth": { "type": "array", "items": { "type": "string" } },
@@ -100,8 +100,35 @@
         "hits": { "type": "array", "items": { "type": "string" } }
       }
     },
-    "context_fingerprint": { "type": "object" },
-    "truth_state_proof": { "type": "object" },
-    "public_private_classification": { "enum": ["public_safe", "conditional", "private_internal"] }
+    "context_fingerprint": {
+      "type": "object",
+      "properties": {
+        "captured_at": { "type": "string" },
+        "repo_dir": { "type": "string" },
+        "branch": { "type": "string" },
+        "head": { "type": "string" },
+        "dirty_file_count": { "type": ["integer", "null"] },
+        "lockfiles": { "type": "array", "items": { "type": "string" } },
+        "package_manager_signal": { "type": "string" },
+        "node_version": { "type": "string" }
+      }
+    },
+    "truth_state_proof": {
+      "type": "object",
+      "properties": {
+        "observed": { "type": "object" },
+        "verified": { "type": "object", "properties": { "command": { "type": "string" }, "exit_code": { "type": "integer" }, "output_excerpt": { "type": "string" } } },
+        "committed": { "type": "object", "properties": { "commit_sha": { "type": "string" } } },
+        "pushed": { "type": "object", "properties": { "remote_ref": { "type": "string" } } },
+        "deployed": { "type": "object", "properties": { "artifact_hash": { "type": "string" }, "deploy_id": { "type": "string" }, "status_output": { "type": "string" } } },
+        "delivered": { "type": "object", "properties": { "ack_ref": { "type": "string" } } }
+      }
+    },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "trace_refs": { "type": "array", "items": { "type": "string" } },
+    "future_retrieval_tags": { "type": "array", "items": { "type": "string" } },
+    "receipt_completeness_score": { "type": ["number", "string", "null"] },
+    "public_private_classification": { "enum": ["public_safe", "conditional", "private_internal", "private_only", "public_safe_if_sanitized", "restricted"] }
   }
 }

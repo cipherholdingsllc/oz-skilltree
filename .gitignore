@@ -47,9 +47,11 @@ temp/
 
 # Receipts boundary: real receipts, handoffs, checkpoints, and failure inboxes
 # live in private vaults. The public repo ships fixtures only.
-receipts/
-!receipts/fixtures/
-!receipts/fixtures/**
+# Anchored to repo root (never matches wiki/Receipts/ even with case-folding),
+# contents-exclusion form so the fixtures re-include can actually fire.
+/receipts/*
+!/receipts/fixtures/
+!/receipts/fixtures/**
 
 # Local leak-scanner extension (private literal patterns; never committed)
 scripts/check-private-leaks.local.mjs

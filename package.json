@@ -27,12 +27,16 @@
     "commands/",
     "docs/",
     "examples/",
+    "field-receipts/",
     "recipes/",
+    "registry/",
     "research/",
     "schemas/",
     "scripts/",
     "skills/",
-    "wiki/"
+    "tests/",
+    "wiki/",
+    "RELEASE.md"
   ],
   "scripts": {
     "validate:schemas": "node scripts/validate-schemas.mjs",

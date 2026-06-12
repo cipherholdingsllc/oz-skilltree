@@ -17,12 +17,16 @@ Countermap is not a vibe list. If there is no explicit counter list, Countermap 
 
 Counter budgets scale with risk:
 
-| Mode | Typical budget |
+| Mode | Budget |
 |---|---:|
-| scan | 3-5 |
-| standard | 5-12 |
-| deep | 12-25 |
-| max | up to 50 |
+| scan | 3–5 |
+| standard | 10–15 |
+| standard+ | 15–20 |
+| deep-lite | 20–25 |
+| deep | 25–35 |
+| max | 35–50 |
+
+Single source of truth: `registry/stable-surfaces.json` (`mode_budgets`), mirrored in [failure-radar.md](failure-radar.md). Mode doctrine version: v0.2 (six-mode).
 
 The budget is a ceiling, not a target. More counters are useful only when they improve safety, diagnosis, verification, rollback, or route selection.
 

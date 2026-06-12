@@ -6,6 +6,7 @@
 
 ```text
 Operator Intent
+  -> Context Fingerprint + Negative-Memory Retrieval Gate
   -> OzTriage
   -> Domain Producers
   -> Failure Radar
@@ -25,6 +26,7 @@ Operator Intent
 | Stage | Consumes | Emits | Receipt proof |
 |---|---|---|---|
 | Operator Intent | goal, constraints, approval ceiling | intent packet | OzReceipt namespace |
+| Fingerprint + Retrieval Gate | repo state, prior receipts, negative memory | context fingerprint, retrieval block ("no hits" is valid; missing block halts) | OzReceipt blocks |
 | OzTriage | intent packet, public-safe context | selected domain stack | OzTriage receipt |
 | Domain Producers | domain stack | rubrics, failure maps, counters, evidence rules, forbidden actions, gates | domain producer receipt |
 | Failure Radar | producer packets, goal, context | scored failure families | failure-radar receipt |

@@ -3,6 +3,14 @@
   "mode_doctrine_version": "v0.2-six-mode",
   "note": "Stable public surfaces. Renaming or deleting any entry is a breaking doctrine change and must follow the amendment rule in CONTRIBUTING.md. Internal failure-family and counter IDs are enumerated in the private source, not here; this registry guards the public surface and the public count claims.",
   "modes": ["scan", "standard", "standard+", "deep-lite", "deep", "max"],
+  "mode_budgets": {
+    "scan": [3, 5],
+    "standard": [10, 15],
+    "standard+": [15, 20],
+    "deep-lite": [20, 25],
+    "deep": [25, 35],
+    "max": [35, 50]
+  },
   "commands": [
     "commands/oz-start.md",
     "commands/oz.md",
