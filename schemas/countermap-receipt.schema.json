@@ -17,7 +17,7 @@
   ],
   "properties": {
     "receipt_id": { "type": "string" },
-    "mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "mode": { "enum": ["scan", "standard", "standard+", "deep-lite", "deep", "max"] },
     "counter_budget": { "type": "integer", "minimum": 1, "maximum": 50 },
     "all_counters_selected": { "type": "array", "items": { "type": "string" } },
     "counters_reserved": { "type": "array", "items": { "type": "string" } },

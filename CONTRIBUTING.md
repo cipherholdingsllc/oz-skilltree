@@ -13,6 +13,14 @@
 - Do not add runtime activation, agents, MCP servers, dashboards, telemetry, or deployment systems.
 - Do not add private implementation details, secrets, PHI, private patient data, collaborator names, or unsupported product claims.
 
+## Developer Certificate of Origin
+
+All commits must be signed off (`git commit -s`), certifying the [Developer Certificate of Origin](https://developercertificate.org/). This keeps licensing provenance clean for every inbound contribution.
+
+## Doctrine Amendment Rule
+
+Doctrine and its checks move together: a doctrine change and its corresponding test/eval fixture change land in the same commit, with rationale in the commit message. A test changed without its doctrine — or doctrine changed without its test — fails review by rule. Stable surfaces (modes, commands, skills, schemas, count claims) are registered in `registry/stable-surfaces.json` and guarded by `npm test`; renaming or deleting one is a breaking doctrine change.
+
 ## Change Shape
 
 Prefer small, reviewable changes:
@@ -30,6 +38,9 @@ Future public notes must use the public naming layer under `research/public-fail
 
 ## Pull Request Checklist
 
+- [ ] DCO sign-off present on every commit
+- [ ] Doctrine and its tests changed together (amendment rule)
+- [ ] Stable surfaces check passes
 - [ ] Source/raw/derived hierarchy preserved
 - [ ] Truth states remain distinct
 - [ ] Approval ladder remains intact

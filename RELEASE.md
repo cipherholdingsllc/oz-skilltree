@@ -28,6 +28,12 @@ The working tree should be clean after the release commit.
 - No unsupported benchmark results.
 - No fake metrics, fake badges, fake telemetry, or implied runtime.
 
+## Doctrine + CI Notes
+
+- Mode doctrine version: v0.2 (six-mode). Doctrine changes follow the amendment rule in CONTRIBUTING.md (doctrine + its test in the same commit).
+- Branch protection should require the CI workflow (`.github/workflows/ci.yml`) on the public branch.
+- The local pre-push leak check is mandatory, not optional: run `npm run check:private` (plus your gitignored `scripts/check-private-leaks.local.mjs` extension patterns) before any push. CI runs only the public-safe patterns; private literals enforce locally by design.
+
 ## Branch Notes
 
 - Publish from the public-safe branch only.

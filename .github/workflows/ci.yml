@@ -1,0 +1,21 @@
+# CI security posture: plain pull_request trigger only (never pull_request_target),
+# least-privilege permissions, zero repository secrets used anywhere in this workflow.
+name: CI
+
+on:
+  push:
+    branches: [public-safe-v0, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test

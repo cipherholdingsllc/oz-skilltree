@@ -1,0 +1,50 @@
+{
+  "registry_version": "0.2.0",
+  "mode_doctrine_version": "v0.2-six-mode",
+  "note": "Stable public surfaces. Renaming or deleting any entry is a breaking doctrine change and must follow the amendment rule in CONTRIBUTING.md. Internal failure-family and counter IDs are enumerated in the private source, not here; this registry guards the public surface and the public count claims.",
+  "modes": ["scan", "standard", "standard+", "deep-lite", "deep", "max"],
+  "commands": [
+    "commands/oz-start.md",
+    "commands/oz.md",
+    "commands/oz-result.md",
+    "commands/oz-handoff.md",
+    "commands/bug-cognizant.md"
+  ],
+  "skills": [
+    "skills/oz-start.md",
+    "skills/oz.md",
+    "skills/oz-result.md",
+    "skills/oz-skilltree.md",
+    "skills/failure-radar.md",
+    "skills/countermap-50.md",
+    "skills/ybr.md",
+    "skills/bug-cognizant.md"
+  ],
+  "schema_files": [
+    "schemas/ozreceipt.schema.json",
+    "schemas/oz-result.schema.json",
+    "schemas/failure-radar.schema.json",
+    "schemas/countermap.schema.json",
+    "schemas/countermap-receipt.schema.json",
+    "schemas/ybr-route.schema.json",
+    "schemas/ybr-route-candidate.schema.json",
+    "schemas/selected-ybr-route.schema.json",
+    "schemas/upgrade-candidate.schema.json",
+    "schemas/oz-start-ledger.schema.json",
+    "schemas/ozledger-entry.schema.json",
+    "schemas/bug-cognizant.schema.json",
+    "schemas/domain-producer-receipt.schema.json",
+    "schemas/gate-runner-receipt.schema.json",
+    "schemas/scoring-receipt.schema.json",
+    "schemas/failure-atlas.schema.json"
+  ],
+  "count_claims": {
+    "failure_families": 42,
+    "counter_families": 16,
+    "claim_strings": [
+      "42 stable failure families",
+      "16 stable counter family IDs"
+    ],
+    "claim_files": ["README.md", "wiki/Failure-Families.md", "CONTRIBUTING.md"]
+  }
+}
