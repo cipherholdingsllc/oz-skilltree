@@ -8,11 +8,10 @@ Run:
 
 ```sh
 npm test
-npm run validate:schemas
-npm run check:links
-npm run check:private
 git status --short
 ```
+
+`npm test` composes all five checks: `validate:schemas` (schema-derived fixture validation), `check:links`, `check:private` (categories in CI; your gitignored local-extension literals run here too), `check:surfaces`, and `eval:structural`.
 
 The working tree should be clean after the release commit.
 
@@ -27,6 +26,12 @@ The working tree should be clean after the release commit.
 - No private implementation strategy.
 - No unsupported benchmark results.
 - No fake metrics, fake badges, fake telemetry, or implied runtime.
+
+## Doctrine + CI Notes
+
+- Mode doctrine version: v0.2 (six-mode). Doctrine changes follow the amendment rule in CONTRIBUTING.md (doctrine + its test in the same commit).
+- Branch protection should require the CI workflow (`.github/workflows/ci.yml`) on the public branch.
+- The local pre-push leak check is mandatory, not optional: run `npm run check:private` (plus your gitignored `scripts/check-private-leaks.local.mjs` extension patterns) before any push. CI runs only the public-safe patterns; private literals enforce locally by design.
 
 ## Branch Notes
 

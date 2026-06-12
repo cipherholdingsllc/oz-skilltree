@@ -4,12 +4,16 @@ Purpose: predict likely failure families before execution.
 
 ## Modes
 
+Mode doctrine version: v0.2 (six-mode). Budgets and full trigger table: [../docs/failure-radar.md](../docs/failure-radar.md).
+
 | Mode | Use |
 |---|---|
-| scan | low-risk prediction |
-| standard | ordinary repo/docs task |
-| deep | PR, integration, deployment, package manager, multi-file, repeated blocker |
-| max | production, auth, secrets, privacy, healthcare claims, database, public launch, cannot-fail mode |
+| `scan` | low-risk prediction |
+| `standard` | ordinary repo/docs task |
+| `standard+` | first proof-test, deployment blocker, high round-trip-cost task |
+| `deep-lite` | incomplete evidence or unclear state without full contradiction |
+| `deep` | PR, integration, deployment, package manager, multi-file, repeated blocker |
+| `max` | production, auth, secrets, privacy, healthcare claims, database, public launch, cannot-fail mode |
 
 ## Required Output
 

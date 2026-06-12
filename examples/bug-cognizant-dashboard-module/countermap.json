@@ -1,7 +1,7 @@
 {
   "countermap_id": "cm-dashboard-module",
   "mode": "standard",
-  "max_counters": 8,
+  "max_counters": 10,
   "counters": [
     {
       "counter_id": "c1",
@@ -14,6 +14,8 @@
       "reversibility_score": 5
     }
   ],
-  "reserved_counters": ["permission matrix review"],
+  "reserved_counters": [
+    "permission matrix review"
+  ],
   "exhaustion_protocol": "Escalate to /oz-start if implementation begins."
 }

@@ -2,7 +2,7 @@
 
 Back to [[Home]].
 
-Receipts live in [[Receipts/README|Receipts]].
+Real OzReceipts live in private vaults — never in this public repo (`receipts/` is gitignored except fixtures). Sanitized receipts are published in batches through [field-receipts](../field-receipts/). See [[Receipts/README|the boundary note]].
 
 ## Open Receipts
 

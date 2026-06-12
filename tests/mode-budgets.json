@@ -1,0 +1,19 @@
+{
+  "note": "Anti-bloat size ratchet for always-load protocol surfaces. Budgets are measured-current + ~20% headroom, set 2026-06-12 (mode doctrine v0.2). Raising a budget is a doctrine change: amendment rule applies (CONTRIBUTING.md). The protocol must not become the context bonfire it warns about.",
+  "unit": "bytes",
+  "budgets": {
+    "skills/oz.md": 860,
+    "skills/oz-start.md": 2010,
+    "skills/oz-result.md": 1270,
+    "skills/oz-skilltree.md": 680,
+    "skills/failure-radar.md": 1170,
+    "skills/countermap-50.md": 690,
+    "skills/ybr.md": 770,
+    "skills/bug-cognizant.md": 560,
+    "commands/oz.md": 370,
+    "commands/oz-start.md": 1040,
+    "commands/oz-result.md": 690,
+    "commands/oz-handoff.md": 1310,
+    "commands/bug-cognizant.md": 450
+  }
+}

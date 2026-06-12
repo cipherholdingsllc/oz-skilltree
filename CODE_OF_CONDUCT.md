@@ -13,3 +13,5 @@ This project uses a direct, evidence-first collaboration standard.
 ## Enforcement
 
 Maintainers may reject or remove contributions that introduce unsafe claims, private information, hostile behavior, or protocol dilution.
+
+Report conduct issues by opening a GitHub issue; for sensitive matters, use the repository's private security advisory flow (see [SECURITY.md](SECURITY.md)).

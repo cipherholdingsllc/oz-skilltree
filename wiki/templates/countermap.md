@@ -11,5 +11,5 @@ exhaustion_protocol:
 
 ## Ordered Counters
 
-| Order | Counter ID | Family ID | Type | Use When | Expected Signal | Side Effect Risk |
-|---:|---|---|---|---|---|---|
+| Order | Counter ID | Family ID | Type | Use When | Do Not Use When | Expected Signal | Side Effect Risk | Reversibility |
+|---:|---|---|---|---|---|---|---|---|

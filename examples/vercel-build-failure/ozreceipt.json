@@ -3,7 +3,11 @@
   "status": "closed",
   "goal": "Diagnose and repair a web build failure.",
   "lane": "repo-build",
-  "source_of_truth": ["package manifest", "lockfile", "build logs"],
+  "source_of_truth": [
+    "package manifest",
+    "lockfile",
+    "build logs"
+  ],
   "repo_context": {
     "repo": "example-web",
     "worktree": "local",
@@ -14,17 +18,75 @@
   "approval_ceiling": "L3",
   "candidate_universe_receipt": "Calibrated internally; surfaced deep diagnostic route.",
   "failure_radar_mode": "deep",
-  "top_failure_families": ["package_manager_or_lockfile_drift", "install_build_step_skipped_or_wrong_cwd"],
-  "countermap": { "ref": "countermap.json" },
-  "ybr_route": { "ref": "ybr-route.json" },
+  "top_failure_families": [
+    "package_manager_or_lockfile_drift",
+    "install_build_step_skipped_or_wrong_cwd"
+  ],
+  "countermap": {
+    "ref": "countermap.json"
+  },
+  "ybr_route": {
+    "ref": "ybr-route.json"
+  },
   "execution_prompt": "Inspect package authority, reproduce build, patch only proven failing surface.",
-  "stop_conditions": ["lockfile authority unclear", "build requires secrets"],
-  "truth_state_updates": [{ "from": "claimed", "to": "verified", "evidence": "local build pass" }],
-  "files_changed": ["example config file"],
-  "commands_run": ["npm test"],
-  "verification": ["local build passed"],
-  "rejected_routes": [{ "route": "blind dependency bump", "why": "too broad before evidence" }],
+  "stop_conditions": [
+    "lockfile authority unclear",
+    "build requires secrets"
+  ],
+  "truth_state_updates": [
+    {
+      "from": "claimed",
+      "to": "verified",
+      "evidence": "local build pass"
+    }
+  ],
+  "files_changed": [
+    "example config file"
+  ],
+  "commands_run": [
+    "npm run build",
+    "npm test"
+  ],
+  "verification": [
+    "local build passed"
+  ],
+  "rejected_routes": [
+    {
+      "route": "blind dependency bump",
+      "why": "too broad before evidence"
+    }
+  ],
   "next_gate": "Commit only after diff review.",
-  "negative_memory": ["Do not treat green install as runtime proof."],
-  "public_private_classification": "public_safe"
+  "negative_memory": [
+    "Do not treat green install as runtime proof."
+  ],
+  "public_private_classification": "public_safe",
+  "truth_state": "verified",
+  "domain_stack": [
+    "BuildProducer",
+    "RepoStateProducer"
+  ],
+  "negative_memory_retrieval": {
+    "searched": true,
+    "query_basis": "retrieval tags: build-failure, package-manager (fixture corpus)",
+    "hits": []
+  },
+  "context_fingerprint": {
+    "repo_dir": "example-web",
+    "branch": "example",
+    "head": "unknown",
+    "dirty_file_count": 0,
+    "lockfiles": [
+      "package-lock.json"
+    ],
+    "package_manager_signal": "npm",
+    "node_version": "v20.x"
+  },
+  "truth_state_proof": {
+    "verified": {
+      "command": "npm run build",
+      "exit_code": 0,
+      "output_excerpt": "build completed (fixture)"
+    }
+  }
 }

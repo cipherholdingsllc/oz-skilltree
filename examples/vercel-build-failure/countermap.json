@@ -1,7 +1,7 @@
 {
   "countermap_id": "cm-vercel-build-failure",
   "mode": "deep",
-  "max_counters": 12,
+  "max_counters": 25,
   "counters": [
     {
       "counter_id": "c1",
@@ -24,6 +24,9 @@
       "reversibility_score": 5
     }
   ],
-  "reserved_counters": ["fresh install after authority confirmed", "targeted build retry"],
+  "reserved_counters": [
+    "fresh install after authority confirmed",
+    "targeted build retry"
+  ],
   "exhaustion_protocol": "Stop and request logs if local reproduction cannot be established."
 }

@@ -2,7 +2,7 @@
 
 ```yaml
 receipt_id: OzReceipt-public-docs-polish-example
-status: parked
+status: blocked
 truth_state: verified
 public_private_classification: public_safe
 domain_stack:

@@ -4,7 +4,7 @@
 
 Mode: `standard`
 
-Budget: 8 counters
+Budget: 10 counters
 
 ## Selected Counters
 

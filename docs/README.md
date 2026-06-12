@@ -12,6 +12,8 @@ Open these first:
 8. [scoring-rubric.md](scoring-rubric.md) for scores, thresholds, and grades.
 9. [receipt-completeness.md](receipt-completeness.md) for proof quality.
 10. [countermap-receipts.md](countermap-receipts.md) for explicit counter standards.
+11. [session-continuity.md](session-continuity.md) for the failure inbox, checkpoints, and handoff briefs.
+12. [failure-radar.md](failure-radar.md) for the six-mode v0.2 doctrine and counter budgets.
 11. [ozreceipt.md](ozreceipt.md) and [ozledger.md](ozledger.md) for receipt memory.
 12. [receipt-graph.md](receipt-graph.md) for receipt memory as graph nodes.
 13. [failure-radar.md](failure-radar.md) for mode selection and failure prediction.

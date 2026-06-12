@@ -3,7 +3,10 @@
   "status": "closed",
   "goal": "Route PR review safely.",
   "lane": "code-review",
-  "source_of_truth": ["PR diff", "repo tests"],
+  "source_of_truth": [
+    "PR diff",
+    "repo tests"
+  ],
   "repo_context": {
     "repo": "example",
     "worktree": "local",
@@ -14,17 +17,48 @@
   "approval_ceiling": "L3",
   "candidate_universe_receipt": "Chose review-first route over blind patching.",
   "failure_radar_mode": "deep",
-  "top_failure_families": ["merge_before_verification", "overbroad_edit_or_side_effect_drift"],
-  "countermap": { "ref": "countermap.json" },
-  "ybr_route": { "ref": "ybr-route.json" },
+  "top_failure_families": [
+    "merge_before_verification",
+    "overbroad_edit_or_side_effect_drift"
+  ],
+  "countermap": {
+    "ref": "countermap.json"
+  },
+  "ybr_route": {
+    "ref": "ybr-route.json"
+  },
   "execution_prompt": "Inspect diff, list findings, run available checks, patch only after approval.",
-  "stop_conditions": ["patch exceeds approval ceiling"],
-  "truth_state_updates": [{ "from": "claimed", "to": "verified", "evidence": "checks run or gap recorded" }],
+  "stop_conditions": [
+    "patch exceeds approval ceiling"
+  ],
+  "truth_state_updates": [
+    {
+      "from": "claimed",
+      "to": "verified",
+      "evidence": "checks run or gap recorded"
+    }
+  ],
   "files_changed": [],
-  "commands_run": ["npm test"],
-  "verification": ["review findings tied to diff evidence"],
-  "rejected_routes": [{ "route": "patch before review", "why": "mutation before evidence" }],
+  "commands_run": [
+    "npm test"
+  ],
+  "verification": [
+    "review findings tied to diff evidence"
+  ],
+  "rejected_routes": [
+    {
+      "route": "patch before review",
+      "why": "mutation before evidence"
+    }
+  ],
   "next_gate": "Request patch approval if needed.",
-  "negative_memory": ["Review findings are not merged proof."],
-  "public_private_classification": "public_safe"
+  "negative_memory": [
+    "Review findings are not merged proof."
+  ],
+  "public_private_classification": "public_safe",
+  "truth_state": "verified",
+  "domain_stack": [
+    "ReviewProducer",
+    "RepoStateProducer"
+  ]
 }

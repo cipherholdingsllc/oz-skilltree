@@ -13,11 +13,14 @@ const secretPatterns = [
   /\b(password|passwd|api_key|secret|token)\s*=\s*['"][^'"]+['"]/i
 ];
 
+// Public-safe CATEGORIES only. Private literal patterns (specific usernames,
+// internal codenames, private directory layouts) live exclusively in the
+// gitignored scripts/check-private-leaks.local.mjs — the denylist itself must
+// never document what it protects. CI enforces categories; the local
+// extension is the mandatory pre-push layer (see RELEASE.md).
 const privatePathPatterns = [
-  /\/Users\/ciphercowork\//,
-  /\/Users\/[^/\s]+\/Documents\/2opmd\//i,
-  /\bCipherOS\b/,
-  /\b2OPMD\b/
+  /\/Users\/[^/\s]+\//,
+  /\/home\/[^/\s]+\//
 ];
 
 const unsafePublicPatterns = [
@@ -27,6 +30,25 @@ const unsafePublicPatterns = [
   /unsupported performance claim/i,
   /guarantees zero bugs/i
 ];
+
+// Local extension hook: private literal patterns live in a gitignored file so
+// the denylist itself can never leak. CI runs public-safe categories only;
+// the local file is the mandatory pre-push layer (see RELEASE.md).
+// A BROKEN local extension is a loud failure, never silent degradation —
+// silently disabling the mandatory layer is worse than having none.
+try {
+  const local = await import("./check-private-leaks.local.mjs");
+  secretPatterns.push(...(local.secretPatterns ?? []));
+  privatePathPatterns.push(...(local.privatePathPatterns ?? []));
+  unsafePublicPatterns.push(...(local.unsafePublicPatterns ?? []));
+  console.log("local leak-pattern extension loaded");
+} catch (err) {
+  if (err.code !== "ERR_MODULE_NOT_FOUND") {
+    console.error(`local leak-pattern extension FAILED to load: ${err.message}`);
+    process.exit(1);
+  }
+  // no local extension present; public-safe patterns only
+}
 
 const policyLinePattern = /\b(do not|must not|should not|not a|not be|no |without|prohibit|forbid|reject|avoid|does not)\b/i;
 
@@ -42,7 +64,14 @@ async function walk(dir) {
 }
 
 function isTextFile(file) {
-  return /\.(md|json|mjs|gitignore|txt)$/i.test(file) || path.basename(file) === "package.json";
+  return /\.(md|json|mjs|gitignore|txt|ya?ml)$/i.test(file)
+    || ["package.json", "LICENSE"].includes(path.basename(file));
+}
+
+// The scanner and its gitignored local extension define the patterns — their
+// own pattern definitions must not flag themselves.
+function isScannerFile(rel) {
+  return rel === "scripts/check-private-leaks.mjs" || rel === "scripts/check-private-leaks.local.mjs";
 }
 
 await walk(root);
@@ -53,14 +82,13 @@ for (const file of files.filter(isTextFile)) {
   const rel = path.relative(root, file);
   const text = await readFile(file, "utf8");
   for (const pattern of secretPatterns) {
-    if (pattern.test(text)) failures.push(`${rel} matched secret pattern ${pattern}`);
+    if (pattern.test(text) && !isScannerFile(rel)) failures.push(`${rel} matched secret pattern ${pattern}`);
   }
   const lines = text.split(/\r?\n/);
   for (const pattern of privatePathPatterns) {
     lines.forEach((line, index) => {
       const context = lines.slice(Math.max(0, index - 10), index + 1).join("\n");
-      const isScannerRule = rel === "scripts/check-private-leaks.mjs";
-      if (pattern.test(line) && !policyLinePattern.test(context) && !isScannerRule) {
+      if (pattern.test(line) && !policyLinePattern.test(context) && !isScannerFile(rel)) {
         failures.push(`${rel}:${index + 1} matched private path/internal-source pattern ${pattern}`);
       }
     });
@@ -68,8 +96,7 @@ for (const file of files.filter(isTextFile)) {
   for (const pattern of unsafePublicPatterns) {
     lines.forEach((line, index) => {
       const context = lines.slice(Math.max(0, index - 10), index + 1).join("\n");
-      const isScannerRule = rel === "scripts/check-private-leaks.mjs";
-      if (pattern.test(line) && !policyLinePattern.test(context) && !isScannerRule) {
+      if (pattern.test(line) && !policyLinePattern.test(context) && !isScannerFile(rel)) {
         failures.push(`${rel}:${index + 1} matched unsafe public phrase ${pattern}`);
       }
     });

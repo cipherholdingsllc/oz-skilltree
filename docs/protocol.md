@@ -5,24 +5,25 @@
 ## Loop
 
 ```text
-frame -> generate -> score -> receipt
+frame -> retrieve -> generate -> score -> receipt
 predict -> counter -> pathfind -> route
 build -> verify -> close -> receipt
-retrieve -> refine -> improve
+drain -> refine -> improve
 ```
 
 ## Operating Contract
 
 1. Start serious goals with `/oz-start`.
-2. Draft exactly one active OzReceipt.
-3. Identify lane, repo/context, source of truth, approval ceiling, and risk notes.
-4. Generate a calibrated candidate universe before treating anything as A/A+.
-5. Select Failure Radar mode.
-6. Build Countermap before mutation.
-7. Select a YellowBrickRoad route.
-8. Execute only inside the route and approval ceiling.
-9. Verify before truth-state promotion.
-10. Close with `/oz-result`.
+2. Draft exactly one active OzReceipt and capture the context fingerprint into it.
+3. Run the negative-memory retrieval gate — "searched, no hits" is valid evidence; a missing retrieval block is a halt.
+4. Identify lane, repo/context, source of truth, approval ceiling, and risk notes.
+5. Generate a calibrated candidate universe before treating anything as A/A+.
+6. Select Failure Radar mode (retrieval hits feed family ranking).
+7. Build Countermap before mutation.
+8. Select a YellowBrickRoad route.
+9. Execute only inside the route and approval ceiling.
+10. Verify before truth-state promotion — each truth state carries its proof contract.
+11. Close with `/oz-result`, draining the failure inbox.
 
 ## Route Discipline
 

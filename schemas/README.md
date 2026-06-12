@@ -29,3 +29,5 @@ Validate with:
 ```sh
 npm run validate:schemas
 ```
+
+Example fixtures are validated against these schema files directly (required keys, enum membership, `additionalProperties`), with modes and counter-budget bands taken from [../registry/stable-surfaces.json](../registry/stable-surfaces.json). Four ledger/receipt artifact types have no governing schema yet and are checked by explicit hand contracts inside the validator; promoting them to real schemas is tracked work.

@@ -7,7 +7,7 @@
   "required": ["countermap_id", "mode", "max_counters", "counters", "reserved_counters", "exhaustion_protocol"],
   "properties": {
     "countermap_id": { "type": "string" },
-    "mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "mode": { "enum": ["scan", "standard", "standard+", "deep-lite", "deep", "max"] },
     "max_counters": { "type": "integer", "minimum": 1, "maximum": 50 },
     "counters": {
       "type": "array",

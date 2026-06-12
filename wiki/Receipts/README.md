@@ -1,9 +1,11 @@
-# Receipts
+# Receipts — Boundary Note
 
-Store real OzReceipts here.
+Real OzReceipts live in private vaults, never in this public repository. The root `receipts/` path is gitignored except `receipts/fixtures/`.
 
-Naming:
+Public receipt material lives in three sanctioned places:
 
-`OzReceipt-{short-goal}-{YYYY-MM-DD}.md`
+- [examples/](../../examples/) — sanitized worked-example fixtures
+- [field-receipts/](../../field-receipts/) — sanitized real-use receipts, published in batches after `npm run check:private` and operator review
+- `receipts/fixtures/` — schema-valid fixtures for tooling tests
 
-Do not commit private receipts to a public repo unless they have passed public/private classification and claims-safety review.
+Naming for private-vault receipts: `OzReceipt-{short-goal}-{YYYY-MM-DD}.md`.

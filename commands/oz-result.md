@@ -10,4 +10,4 @@ Close out one active OzReceipt.
 
 ## Closeout
 
-Update truth state, counters, negative memory, future tags, changed files, commands run, verification evidence, rejected routes, and next gate.
+Update truth state (with proof contract), counters, negative memory, future tags, changed files, commands run, verification evidence, rejected routes, and next gate. Drain the failure inbox: classify every pending entry or carry it forward with a reason — close is blocked otherwise. See [../docs/session-continuity.md](../docs/session-continuity.md).

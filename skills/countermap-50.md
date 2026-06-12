@@ -10,6 +10,7 @@ Counters preserve the 16 raw counter family IDs and group operator-facing counte
 - verification
 - rollback
 - escalation
+- human-escalation
 - source-of-truth
 - environment
 - branch/commit

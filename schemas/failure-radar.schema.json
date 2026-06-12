@@ -14,7 +14,7 @@
     "route_change_triggers"
   ],
   "properties": {
-    "mode": { "enum": ["scan", "standard", "deep", "max"] },
+    "mode": { "enum": ["scan", "standard", "standard+", "deep-lite", "deep", "max"] },
     "why_this_mode": { "type": "string" },
     "why_not_lower_mode": { "type": "string" },
     "top_failure_families": {
