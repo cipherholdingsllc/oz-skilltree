@@ -61,6 +61,7 @@ Mode doctrine version: **v0.2 (six-mode)**. `failure-radar-max` must not be weak
 
 | Step | Question | Output |
 |---|---|---|
+| gate | Does this deserve a mission at all? ([Forward Gate](docs/forward-gate.md), when go/no-go is unclear) | proceed / plan_first / ask / defer / reject |
 | frame | What is the goal, lane, source of truth, and approval ceiling? | OzReceipt draft |
 | retrieve | What do prior receipts and negative memory already know about this kind of work? | retrieval block (mandatory at start) |
 | generate | What weak, mediocre, good, and strong routes exist? | calibrated candidate universe |

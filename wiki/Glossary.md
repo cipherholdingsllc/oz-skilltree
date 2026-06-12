@@ -12,6 +12,7 @@ Back to [[Home]].
 | Truth state | proof status of a claim or result |
 | Approval ceiling | maximum allowed action level |
 | Negative memory | recorded trap to avoid repeating |
+| Forward Gate | pre-mission go/no-go: three tests, five outputs (proceed / plan_first / ask_one_question / defer / reject), upstream of `/oz-start` |
 | Retrieval gate | mandatory search of prior receipts/negative memory at `/oz-start`; "no hits" recorded is valid, a missing block is a halt |
 | Context fingerprint | deterministic repo/branch/HEAD/lockfile capture stamped into a receipt at task start |
 | Proof contract | the evidence a truth state requires; a state without proof reports one rung lower |

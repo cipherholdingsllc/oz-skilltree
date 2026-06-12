@@ -1,6 +1,6 @@
 # /oz-start
 
-`/oz-start` opens a mission.
+`/oz-start` opens a mission. When whether to open one is itself the question, run the [Forward Gate](forward-gate.md) first — `proceed` is its only output that lands here.
 
 It is route-aware, not just upgrade-aware. Its job is to establish the safest useful execution package before mutation.
 

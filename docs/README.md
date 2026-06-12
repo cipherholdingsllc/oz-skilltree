@@ -14,6 +14,7 @@ Open these first:
 10. [countermap-receipts.md](countermap-receipts.md) for explicit counter standards.
 11. [session-continuity.md](session-continuity.md) for the failure inbox, checkpoints, and handoff briefs.
 12. [failure-radar.md](failure-radar.md) for the six-mode v0.2 doctrine and counter budgets.
+13. [forward-gate.md](forward-gate.md) for the pre-mission go/no-go judgment gate.
 11. [ozreceipt.md](ozreceipt.md) and [ozledger.md](ozledger.md) for receipt memory.
 12. [receipt-graph.md](receipt-graph.md) for receipt memory as graph nodes.
 13. [failure-radar.md](failure-radar.md) for mode selection and failure prediction.
