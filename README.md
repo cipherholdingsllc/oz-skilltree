@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/cipherholdingsllc/oz-skilltree/actions/workflows/ci.yml/badge.svg?branch=public-safe-v0)](https://github.com/cipherholdingsllc/oz-skilltree/actions/workflows/ci.yml)
 
+v0.1 edition · Apache-2.0
+
 **AI coding agents fail when execution outruns evidence. `oz-skilltree` is a protocol that makes the failure predictable, counterable, and provable — before the edit, not after the incident.**
 
 It is a docs-first, schema-backed execution protocol for AI-assisted software work: predict likely failures, choose a safe route, verify the result, leave an auditable receipt. AI speed with senior-engineer foresight.
