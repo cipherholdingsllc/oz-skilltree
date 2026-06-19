@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1120 360">
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1120 420">
   <title id="title">OzSkillTree protocol flow</title>
   <desc id="desc">A minimal protocol diagram showing a risky stale-plan task routed through oz-start, context fingerprint, negative-memory retrieval, Failure Radar, Countermap, YBR route, bounded execution, and truth-state proof with OzReceipt.</desc>
   <defs>
@@ -19,7 +19,7 @@
     </style>
   </defs>
 
-  <rect class="bg" x="0" y="0" width="1120" height="360" rx="0"/>
+  <rect class="bg" x="0" y="0" width="1120" height="420" rx="0"/>
 
   <text class="label" x="44" y="38">OzSkillTree evidence-first route</text>
   <text class="small" x="44" y="60">Predict failure, route safely, prove the result, leave a receipt.</text>
@@ -61,16 +61,15 @@
   <text class="text" x="969" y="205">YBR</text>
   <text class="small" x="969" y="226">route wins</text>
 
-  <path class="line" d="M 1008 172 C 1008 126 960 110 875 110"/>
+  <path class="line" d="M 1008 244 C 1008 260 980 260 940 260 L 430 260 L 430 272"/>
 
-  <rect class="panel" x="268" y="250" width="332" height="66" rx="8"/>
-  <text class="text" x="292" y="286">Bounded execution</text>
-  <text class="small" x="482" y="286">local scope, stop conditions, targeted checks</text>
+  <rect class="panel" x="250" y="275" width="360" height="84" rx="8"/>
+  <text class="text" x="274" y="310">Bounded execution</text>
+  <text class="small" x="274" y="334">local scope, stop conditions, targeted checks</text>
 
-  <path class="line" d="M 434 250 L 434 214 L 556 214 L 556 207"/>
-  <path class="line" d="M 608 283 L 668 283"/>
+  <path class="line" d="M 618 317 L 672 317"/>
 
-  <rect class="panel proof" x="680" y="250" width="396" height="66" rx="8"/>
-  <text class="text" x="704" y="286">Truth-state proof + OzReceipt</text>
-  <text class="small" x="958" y="286">evidence, tags, closeout</text>
+  <rect class="panel proof" x="680" y="275" width="396" height="84" rx="8"/>
+  <text class="text" x="704" y="310">Truth-state proof + OzReceipt</text>
+  <text class="small" x="704" y="334">evidence, tags, closeout</text>
 </svg>
