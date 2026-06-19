@@ -10,6 +10,7 @@ No active receipt is shipped with this starter repo.
 
 ## Example Receipts
 
+- [Agent drift recovery](../examples/agent-drift-recovery/ozreceipt.json)
 - [Vercel build failure](../examples/vercel-build-failure/ozreceipt.json)
 - [Bug-Cognizant dashboard module](../examples/bug-cognizant-dashboard-module/ozreceipt.json)
 - [PR review routing split](../examples/pr-review-routing-split/ozreceipt.json)

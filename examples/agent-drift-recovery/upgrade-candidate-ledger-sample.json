@@ -1,0 +1,58 @@
+{
+  "ledger_id": "upgrade-candidate-ledger-agent-drift-recovery-sample",
+  "route_weighted_scoring_rubric": {
+    "selected_route_id": "route-fingerprint-then-target",
+    "rubric_ref": "selected-ybr-route.json"
+  },
+  "candidate_count_model": "Public fixture shows a compact sample; serious ambiguous goals may require a larger candidate universe before selection.",
+  "sample_candidates": [
+    {
+      "candidate_id": "cand-001",
+      "title": "Require context fingerprint before stale-plan reuse",
+      "grade": "A+",
+      "score_out_of_10": 9.86,
+      "threshold": "A+ >= 9.70",
+      "status": "incorporate",
+      "reason_5_words": "Stops drift before mutation",
+      "why_powerful": "It forces current branch and source-of-truth proof before the old plan can shape edits.",
+      "route_alignment": "Directly supports the selected evidence-first route.",
+      "where_applied": "OzReceipt context_fingerprint and first gate",
+      "approval_scope_required": "L1"
+    },
+    {
+      "candidate_id": "cand-002",
+      "title": "Pin verification to targeted smoke test",
+      "grade": "A+",
+      "score_out_of_10": 9.74,
+      "threshold": "A+ >= 9.70",
+      "status": "incorporate",
+      "reason_5_words": "Prevents false green summaries",
+      "why_powerful": "It keeps truth state below verified until the acceptance criterion has command evidence.",
+      "route_alignment": "Required by the verification gate.",
+      "where_applied": "Gate Runner and OzResult",
+      "approval_scope_required": "L3"
+    },
+    {
+      "candidate_id": "cand-003",
+      "title": "Quarantine private/internal material",
+      "grade": "A",
+      "score_out_of_10": 9.42,
+      "threshold": "A >= 9.35",
+      "status": "incorporate",
+      "reason_5_words": "Keeps public surface clean",
+      "why_powerful": "It prevents a debugging task from becoming a public/private boundary mistake.",
+      "route_alignment": "Supports public/private boundary counter.",
+      "where_applied": "Countermap and stop conditions",
+      "approval_scope_required": "L2"
+    },
+    {
+      "candidate_id": "cand-004",
+      "title": "Add dashboard harness automation",
+      "grade": "C",
+      "score_out_of_10": 5.2,
+      "threshold": "below A-",
+      "status": "reject",
+      "reason_5_words": "Overbuild for fixture scope"
+    }
+  ]
+}

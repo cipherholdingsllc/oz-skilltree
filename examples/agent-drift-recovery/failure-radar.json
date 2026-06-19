@@ -1,0 +1,50 @@
+{
+  "mode": "deep",
+  "why_this_mode": "The task combines stale-plan reuse, branch/context ambiguity, wrong-surface edit risk, public/private boundary risk, overbroad patch risk, and false-completion risk.",
+  "why_not_lower_mode": "A lower mode could accept the prior plan too quickly and mutate the dashboard shell before proving the current failing surface.",
+  "top_failure_families": [
+    {
+      "failure_id": "stale_plan_reuse_after_state_change",
+      "confidence": "high",
+      "evidence_basis": "The prior plan predates the current branch and failing test signal.",
+      "public_private_classification": "public_safe"
+    },
+    {
+      "failure_id": "wrong_surface_edit",
+      "confidence": "high",
+      "evidence_basis": "Current evidence points toward routing behavior while the stale plan targets dashboard shell rendering.",
+      "public_private_classification": "public_safe"
+    },
+    {
+      "failure_id": "public_private_boundary_blur",
+      "confidence": "medium",
+      "evidence_basis": "Public-safe docs and private/internal notes are adjacent and must be separated before mutation.",
+      "public_private_classification": "conditional"
+    },
+    {
+      "failure_id": "false_completion_from_weak_verification",
+      "confidence": "high",
+      "evidence_basis": "The acceptance criterion requires a targeted smoke test, not a generic green summary.",
+      "public_private_classification": "public_safe"
+    }
+  ],
+  "unknowns": [
+    "current branch head",
+    "current failing test output",
+    "exact file that owns routing behavior",
+    "whether private/internal notes are in mutation scope"
+  ],
+  "first_safe_action": "Run repo context fingerprint and negative-memory retrieval before accepting or rejecting the stale plan.",
+  "stop_conditions": [
+    "repo or branch cannot be confirmed",
+    "private/internal material enters proposed diff",
+    "targeted failing test cannot be reproduced",
+    "fix requires pushing or deploying"
+  ],
+  "route_change_triggers": [
+    "fresh evidence confirms the dashboard shell is the failing surface",
+    "routing smoke test cannot be isolated",
+    "public/private boundary is unclear",
+    "verification requires credentials or deployment"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "countermap_id": "cm-agent-drift-recovery",
+  "mode": "deep",
+  "max_counters": 28,
+  "counters": [
+    {
+      "counter_id": "c1-context-fingerprint",
+      "counter_family_id": "environment_fingerprint",
+      "counter_type": "diagnostic",
+      "use_when": "Before deciding whether a prior plan is still valid.",
+      "do_not_use_when": "Repo root and branch are already captured in the active receipt.",
+      "expected_signal": "Current root, branch, head, dirty state, lockfiles, and package manager are recorded.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c2-negative-memory",
+      "counter_family_id": "negative_memory",
+      "counter_type": "prevention",
+      "use_when": "A stale plan or repeated failure family may already be known.",
+      "do_not_use_when": "No receipt corpus or operator memory exists for this class of task.",
+      "expected_signal": "Prior wrong-surface and false-completion failures are surfaced before mode selection.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c3-repo-truth",
+      "counter_family_id": "repo_truth",
+      "counter_type": "diagnostic",
+      "use_when": "The failing surface is disputed between stale plan and fresh evidence.",
+      "do_not_use_when": "The failing file is already proven by a current command.",
+      "expected_signal": "Current files and tests identify the narrowest likely owning surface.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c4-public-private-boundary",
+      "counter_family_id": "public_private_boundary",
+      "counter_type": "prevention",
+      "use_when": "Public-safe files are adjacent to private/internal notes.",
+      "do_not_use_when": "The entire target tree is already classified public-safe.",
+      "expected_signal": "Mutation scope excludes private/internal material and unsupported claims.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    },
+    {
+      "counter_id": "c5-targeted-verification",
+      "counter_family_id": "verification_evidence",
+      "counter_type": "verification",
+      "use_when": "Truth state must move from claimed to verified.",
+      "do_not_use_when": "The targeted smoke test cannot be run in the local environment.",
+      "expected_signal": "Targeted smoke test and leak scan pass with command evidence.",
+      "side_effect_risk": "low",
+      "reversibility_score": 5
+    }
+  ],
+  "reserved_counters": [
+    "rollback exact touched files",
+    "ask for approval before broader package mutation",
+    "hold truth state at observed if targeted proof is incomplete"
+  ],
+  "exhaustion_protocol": "Stop at observed if the targeted failing surface cannot be reproduced or if the boundary classification remains unclear."
+}

@@ -1,0 +1,71 @@
+{
+  "receipt_id": "OzReceipt-agent-drift-recovery",
+  "result_id": "OzResult-agent-drift-recovery",
+  "truth_state_before": "observed",
+  "truth_state_after": "verified",
+  "counter_results": [
+    {
+      "counter_id": "c1-context-fingerprint",
+      "status": "worked",
+      "evidence": "current branch and head recorded before editing"
+    },
+    {
+      "counter_id": "c2-negative-memory",
+      "status": "worked",
+      "evidence": "stale-plan and false-completion memories retrieved"
+    },
+    {
+      "counter_id": "c3-repo-truth",
+      "status": "worked",
+      "evidence": "targeted smoke evidence narrowed the failing surface"
+    },
+    {
+      "counter_id": "c4-public-private-boundary",
+      "status": "worked",
+      "evidence": "diff stayed inside public-safe fixture files"
+    },
+    {
+      "counter_id": "c5-targeted-verification",
+      "status": "worked",
+      "evidence": "targeted smoke and leak scan passed"
+    }
+  ],
+  "negative_memory": [
+    "Stale plans must be revalidated against current branch evidence before mutation.",
+    "Truth state stays below verified until the acceptance-specific test passes."
+  ],
+  "future_retrieval_tags": [
+    "stale-plan",
+    "wrong-surface",
+    "public-private-boundary",
+    "false-completion",
+    "dashboard-smoke"
+  ],
+  "changed_route_if_any": null,
+  "files_changed": [
+    "app/routes/dashboard-smoke.example",
+    "tests/dashboard-smoke.example"
+  ],
+  "commands_run": [
+    "npm run test:dashboard-smoke",
+    "npm run check:private"
+  ],
+  "verification": [
+    "targeted dashboard smoke test passed",
+    "public/private leak scan passed"
+  ],
+  "closed": true,
+  "next_gate": "Review exact diff before commit; no push or deploy in this fixture.",
+  "failure_inbox_drain": {
+    "drained": true,
+    "pending_entries": 0,
+    "carried_forward": []
+  },
+  "truth_state_proof": {
+    "verified": {
+      "command": "npm run test:dashboard-smoke && npm run check:private",
+      "exit_code": 0,
+      "output_excerpt": "dashboard smoke passed; private leak check passed (fixture)"
+    }
+  }
+}

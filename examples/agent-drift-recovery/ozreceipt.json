@@ -1,0 +1,143 @@
+{
+  "receipt_id": "OzReceipt-agent-drift-recovery",
+  "status": "closed",
+  "goal": "Recover from a stale AI-agent plan and fix the current dashboard smoke failure only after proving the failing surface.",
+  "lane": "repo-debugging",
+  "source_of_truth": [
+    "current branch fingerprint",
+    "targeted smoke test output",
+    "public/private boundary scan",
+    "acceptance criterion"
+  ],
+  "repo_context": {
+    "repo": "example-dashboard",
+    "worktree": "local",
+    "root_path": "/repo",
+    "branch": "feature/dashboard-smoke",
+    "commit_sha": "example-current-head"
+  },
+  "approval_ceiling": "L3",
+  "truth_state": "verified",
+  "domain_stack": [
+    "RepoStateProducer",
+    "TestFailureProducer",
+    "ClaimsSafetyProducer"
+  ],
+  "candidate_universe_receipt": "ybr-route-candidate-ledger.json",
+  "failure_radar_mode": "deep",
+  "top_failure_families": [
+    "stale_plan_reuse_after_state_change",
+    "wrong_surface_edit",
+    "public_private_boundary_blur",
+    "false_completion_from_weak_verification"
+  ],
+  "countermap": {
+    "ref": "countermap.json"
+  },
+  "ybr_route": {
+    "ref": "ybr-route.json"
+  },
+  "execution_prompt": "Reject the stale dashboard shell plan until current repo context, negative memory, and targeted test evidence identify the failing surface; patch only the proven routing boundary and verify locally.",
+  "stop_conditions": [
+    "repo or branch cannot be confirmed",
+    "targeted failing surface cannot be reproduced",
+    "private/internal material enters proposed diff",
+    "broader package mutation is required",
+    "push or deploy is required for verification"
+  ],
+  "truth_state_updates": [
+    {
+      "from": "claimed",
+      "to": "observed",
+      "evidence": "current failing smoke test reproduced in fixture"
+    },
+    {
+      "from": "observed",
+      "to": "verified",
+      "evidence": "targeted smoke test and leak scan pass in fixture"
+    }
+  ],
+  "files_changed": [
+    "app/routes/dashboard-smoke.example",
+    "tests/dashboard-smoke.example"
+  ],
+  "commands_run": [
+    "npm run test:dashboard-smoke",
+    "npm run check:private"
+  ],
+  "verification": [
+    "targeted dashboard smoke test passed",
+    "public/private leak scan passed"
+  ],
+  "rejected_routes": [
+    {
+      "route_id": "route-run-stale-plan",
+      "why": "would mutate DashboardShell before proving it owns the current failure"
+    },
+    {
+      "route_id": "route-boundary-quarantine-only",
+      "why": "safe but slower than combined fingerprint and targeted reproduction"
+    }
+  ],
+  "next_gate": "Review exact diff before commit; no push or deploy in this fixture.",
+  "scoring_events": [
+    {
+      "grade": "A+",
+      "score_out_of_10": 9.72,
+      "threshold": "A+ >= 9.70",
+      "status": "selected",
+      "reason": "Route wins on evidence freshness, surface precision, public safety, and verification strength."
+    }
+  ],
+  "trigger_decisions": [
+    {
+      "trigger_name": "failure-radar-deep",
+      "threshold": "stale plan plus ambiguous failing surface",
+      "actual_score": 9.46,
+      "triggered": true
+    }
+  ],
+  "negative_memory": [
+    "Do not reuse a prior plan after branch state changes without a fresh context fingerprint.",
+    "Do not promote a fix to verified from a broad green summary when the acceptance criterion is a targeted smoke test."
+  ],
+  "negative_memory_retrieval": {
+    "searched": true,
+    "query_basis": "retrieval tags: stale-plan, wrong-surface, false-completion, public-private-boundary (fixture corpus)",
+    "hits": [
+      "Prior stale-plan tasks drifted when branch state changed after the plan.",
+      "False completion risk rises when targeted tests are replaced by broad status summaries."
+    ]
+  },
+  "context_fingerprint": {
+    "captured_at": "2026-01-01T00:00:00Z",
+    "repo_dir": "example-dashboard",
+    "branch": "feature/dashboard-smoke",
+    "head": "example-current-head",
+    "dirty_file_count": 0,
+    "lockfiles": [
+      "package-lock.json"
+    ],
+    "package_manager_signal": "npm",
+    "node_version": "v20.x"
+  },
+  "truth_state_proof": {
+    "observed": {
+      "evidence": "targeted dashboard smoke test reproduced the fixture failure before edit"
+    },
+    "verified": {
+      "command": "npm run test:dashboard-smoke && npm run check:private",
+      "exit_code": 0,
+      "output_excerpt": "dashboard smoke passed; private leak check passed (fixture)"
+    }
+  },
+  "future_retrieval_tags": [
+    "stale-plan",
+    "wrong-surface",
+    "public-private-boundary",
+    "false-completion",
+    "dashboard-smoke"
+  ],
+  "receipt_completeness_score": 9.4,
+  "public_private_classification": "public_safe_if_sanitized"
+}

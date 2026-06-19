@@ -1,0 +1,34 @@
+{
+  "route_id": "ybr-agent-drift-recovery-001",
+  "selected_route": "Fingerprint current context, retrieve negative memory, reproduce the targeted failure, patch only the proven routing boundary, then verify with targeted smoke and leak checks.",
+  "why_this_route_wins": "It converts agent drift into evidence gates and prevents the stale plan from driving mutation.",
+  "failure_families_addressed": [
+    "stale_plan_reuse_after_state_change",
+    "wrong_surface_edit",
+    "public_private_boundary_blur",
+    "false_completion_from_weak_verification"
+  ],
+  "counters_used_first": [
+    "c1-context-fingerprint",
+    "c2-negative-memory",
+    "c3-repo-truth",
+    "c4-public-private-boundary",
+    "c5-targeted-verification"
+  ],
+  "counters_reserved": [
+    "rollback exact touched files",
+    "ask for approval before broader package mutation",
+    "hold truth state at observed if targeted proof is incomplete"
+  ],
+  "first_safe_action": "Capture current repo context and compare it against the stale plan before editing.",
+  "approval_level": "L3",
+  "verification_gate": "Targeted dashboard smoke test and public/private leak scan pass locally.",
+  "evidence_that_changes_route": [
+    "current test proves DashboardShell is the failing surface",
+    "routing test cannot be reproduced",
+    "private/internal material appears in target diff",
+    "fix requires deployment or credentials"
+  ],
+  "stop_condition": "Stop if the current failing surface cannot be proven locally.",
+  "next_approval_phrase": "Approve local-only targeted patch after failing surface is reproduced."
+}

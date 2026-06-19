@@ -1,0 +1,32 @@
+{
+  "receipt_id": "gate-runner-agent-drift-recovery",
+  "selected_route_id": "route-fingerprint-then-target",
+  "execution_window": "L3 local-only targeted patch and verification; no push, deploy, field receipt, or broad package mutation.",
+  "grade": "A",
+  "score_out_of_10": 9.46,
+  "threshold": "A >= 9.35",
+  "status": "open_safe_window",
+  "reason": "Selected route is bounded, reversible, public-safe when sanitized, and proof-gated before truth-state promotion.",
+  "gates": [
+    {
+      "gate_id": "gate-1-context",
+      "expected_evidence": "context fingerprint and negative-memory retrieval recorded",
+      "status": "planned"
+    },
+    {
+      "gate_id": "gate-2-reproduce",
+      "expected_evidence": "targeted smoke test reproduces current failure",
+      "status": "planned"
+    },
+    {
+      "gate_id": "gate-3-boundary",
+      "expected_evidence": "diff excludes private/internal material and unrelated package surfaces",
+      "status": "planned"
+    },
+    {
+      "gate_id": "gate-4-verify",
+      "expected_evidence": "targeted smoke test and leak scan pass locally",
+      "status": "planned"
+    }
+  ]
+}

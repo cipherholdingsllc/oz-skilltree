@@ -40,7 +40,7 @@ stable surfaces intact
 structural evals passed
 ```
 
-Then open one worked example — [vercel-build-failure](examples/vercel-build-failure/) — and read the receipt chain end to end.
+Then open the flagship worked example — [agent-drift-recovery](examples/agent-drift-recovery/) — and read the receipt chain end to end.
 
 ## How Much Overhead Is This, Really?
 
@@ -121,7 +121,8 @@ Examples are sanitized fixtures. They do not include fake logs, fake users, fake
 
 | Example | Shows |
 |---|---|
-| [vercel-build-failure](examples/vercel-build-failure/) | deep-mode build-failure routing without deploy claims |
+| [agent-drift-recovery](examples/agent-drift-recovery/) | stale-plan, wrong-surface, public/private boundary, and false-completion recovery |
+| [vercel-build-failure](examples/vercel-build-failure/) | basic deep-mode build-failure routing without deploy claims |
 | [bug-cognizant-dashboard-module](examples/bug-cognizant-dashboard-module/) | future-build architecture prediction before implementation |
 | [pr-review-routing-split](examples/pr-review-routing-split/) | separating PR review, verification, and optional patch work |
 
