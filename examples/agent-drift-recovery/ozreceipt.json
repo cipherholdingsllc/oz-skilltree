@@ -1,13 +1,13 @@
 {
   "receipt_id": "OzReceipt-agent-drift-recovery",
   "status": "closed",
-  "goal": "Recover from a stale AI-agent plan and fix the current dashboard smoke failure only after proving the failing surface.",
+  "goal": "Sanitized fixture: model recovery from a stale AI-agent plan and fix a dashboard smoke failure only after proving the failing surface.",
   "lane": "repo-debugging",
   "source_of_truth": [
-    "current branch fingerprint",
-    "targeted smoke test output",
-    "public/private boundary scan",
-    "acceptance criterion"
+    "fixture branch fingerprint",
+    "fixture targeted smoke test transcript",
+    "fixture public/private boundary scan",
+    "fixture acceptance criterion"
   ],
   "repo_context": {
     "repo": "example-dashboard",
@@ -37,7 +37,7 @@
   "ybr_route": {
     "ref": "ybr-route.json"
   },
-  "execution_prompt": "Reject the stale dashboard shell plan until current repo context, negative memory, and targeted test evidence identify the failing surface; patch only the proven routing boundary and verify locally.",
+  "execution_prompt": "In this sanitized fixture, reject the stale dashboard shell plan until fixture repo context, negative memory, and targeted test evidence identify the failing surface; patch only the proven routing boundary and verify locally.",
   "stop_conditions": [
     "repo or branch cannot be confirmed",
     "targeted failing surface cannot be reproduced",
@@ -49,12 +49,12 @@
     {
       "from": "claimed",
       "to": "observed",
-      "evidence": "current failing smoke test reproduced in fixture"
+      "evidence": "fixture transcript shows the dashboard smoke failure before edit"
     },
     {
       "from": "observed",
       "to": "verified",
-      "evidence": "targeted smoke test and leak scan pass in fixture"
+      "evidence": "fixture transcript shows targeted smoke and leak checks passing"
     }
   ],
   "files_changed": [
@@ -66,8 +66,8 @@
     "npm run check:private"
   ],
   "verification": [
-    "targeted dashboard smoke test passed",
-    "public/private leak scan passed"
+    "fixture targeted dashboard smoke proof recorded",
+    "fixture public/private leak scan proof recorded"
   ],
   "rejected_routes": [
     {
@@ -123,12 +123,12 @@
   },
   "truth_state_proof": {
     "observed": {
-      "evidence": "targeted dashboard smoke test reproduced the fixture failure before edit"
+      "evidence": "fixture transcript shows the dashboard smoke failure before edit"
     },
     "verified": {
       "command": "npm run test:dashboard-smoke && npm run check:private",
       "exit_code": 0,
-      "output_excerpt": "dashboard smoke passed; private leak check passed (fixture)"
+      "output_excerpt": "fixture transcript: dashboard smoke passed; private leak check passed"
     }
   },
   "future_retrieval_tags": [

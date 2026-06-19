@@ -8,6 +8,8 @@ v0.1 edition · Apache-2.0
 
 It is a docs-first, schema-backed execution protocol for AI-assisted software work: predict likely failures, choose a safe route, verify the result, leave an auditable receipt. AI speed with senior-engineer foresight.
 
+![OzSkillTree protocol flow](assets/oz-skilltree-flow.svg)
+
 ## Why AI Coding Agents Fail
 
 - wrong repo, worktree, branch, or package boundary
@@ -33,11 +35,12 @@ npm test
 Example output (structure validation, link integrity, leak scan, stable surfaces, structural evals):
 
 ```
-schemas valid; checked 16 schemas and 25 example JSON files
-doc links valid; checked markdown files
-private leak check passed
-stable surfaces intact
-structural evals passed
+schemas valid; checked 16 schemas and 34 example JSON files (schema-derived, registry modes/budgets)
+doc links valid; checked 87 markdown files
+local leak-pattern extension loaded
+private leak check passed; scanned 151 files
+stable surfaces intact; 5 commands, 8 skills, 16 schemas, 6 modes, count claims present
+structural evals passed; 65 assertions green
 ```
 
 Then open the flagship worked example — [agent-drift-recovery](examples/agent-drift-recovery/) — and read the receipt chain end to end.

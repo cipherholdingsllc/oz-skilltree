@@ -7,7 +7,7 @@
     {
       "counter_id": "c1-context-fingerprint",
       "status": "worked",
-      "evidence": "current branch and head recorded before editing"
+      "evidence": "fixture branch and head recorded before editing"
     },
     {
       "counter_id": "c2-negative-memory",
@@ -17,17 +17,17 @@
     {
       "counter_id": "c3-repo-truth",
       "status": "worked",
-      "evidence": "targeted smoke evidence narrowed the failing surface"
+      "evidence": "fixture targeted smoke evidence narrowed the failing surface"
     },
     {
       "counter_id": "c4-public-private-boundary",
       "status": "worked",
-      "evidence": "diff stayed inside public-safe fixture files"
+      "evidence": "fixture diff stayed inside public-safe files"
     },
     {
       "counter_id": "c5-targeted-verification",
       "status": "worked",
-      "evidence": "targeted smoke and leak scan passed"
+      "evidence": "fixture transcript shows targeted smoke and leak checks passing"
     }
   ],
   "negative_memory": [
@@ -51,8 +51,8 @@
     "npm run check:private"
   ],
   "verification": [
-    "targeted dashboard smoke test passed",
-    "public/private leak scan passed"
+    "fixture targeted dashboard smoke proof recorded",
+    "fixture public/private leak scan proof recorded"
   ],
   "closed": true,
   "next_gate": "Review exact diff before commit; no push or deploy in this fixture.",
@@ -65,7 +65,7 @@
     "verified": {
       "command": "npm run test:dashboard-smoke && npm run check:private",
       "exit_code": 0,
-      "output_excerpt": "dashboard smoke passed; private leak check passed (fixture)"
+      "output_excerpt": "fixture transcript: dashboard smoke passed; private leak check passed"
     }
   }
 }
